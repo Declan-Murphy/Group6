@@ -25,6 +25,23 @@ public class ImportExcel {
 		//cell.setCellType(Cell.CELL_TYPE_STRING);
 		//cell.setCellValue("a test");
 		System.out.print("FINISHED!" + cell.getNumericCellValue());
+		//dateTime(inp);
+		
+	}
+	
+	public static void dateTime(InputStream inp) throws Exception{
+		
+		Workbook wb = WorkbookFactory.create(inp);
+		Sheet sheet = wb.getSheetAt(0);
+		Row row = sheet.getRow(2);
+		Cell cell = row.getCell(3);
+		
+//		if (cell == null)
+//		    cell = row.createCell(3);
+		//cell.setCellType(Cell.CELL_TYPE_STRING);
+		//cell.setCellValue("a test");
+		System.out.print("FINISHED!" + cell.getNumericCellValue());
+		
 	}
 
 }
