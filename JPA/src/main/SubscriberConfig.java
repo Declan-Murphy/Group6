@@ -22,9 +22,10 @@ import entity.Subscriber;
 public class SubscriberConfig {
 	
 	public static void main(String[] args){
+			//TODO to run Jennys code uncomment next line
 		//SubscriberConfig config = new SubscriberConfig();
 		try {
-			ImportExcel.excel();
+			new ImportExcel();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
