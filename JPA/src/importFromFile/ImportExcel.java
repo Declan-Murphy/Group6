@@ -50,10 +50,162 @@ public class ImportExcel {
 			System.out.println("EvenCause Description is :" + getEventCauseDescription( getCauseCode(i),getBaseEventId(i) ));
 			System.out.println("Failure Class Description is :" + getFailureClassDescription( getFailureClass(i) ));
 			System.out.println("marketing name is :" + getMarketingName( getUEType(i) ));
+			System.out.println("Manufacturer name is :" + getManufacturer( getUEType(i) ));
+			System.out.println("ACCESS CAPABILITY name is :" + getAccessCapability( getUEType(i) ));
+			System.out.println("Model name is :" + getModel( getUEType(i) ));
+			System.out.println("Vendor name is :" + getVendorName( getUEType(i) ));
+			System.out.println("UETABLE UETYPE name is :" + getUETableUEtype( getUEType(i) ));
+			System.out.println("OS name is :" + getOS( getUEType(i) ));
+			System.out.println("Input Mode name is :" + getInputMode( getUEType(i) ));
+			System.out.println("COUNTRY name is :" + getCountry( getMarket(i) ));
+			System.out.println("OPERATOR name is :" + getOperator( getMarket(i),getOperator(i) ));
+
 
 		}
 	}
+
 	//TODO For the UE table sheet maybe do them all at once so you don't have to search for the tac each time
+	
+	//TODO THIS DOES NOT WORK PROPERLY LOOK BECAUSE THERE ARE MULTIPLE MCC DON@T USE
+	public String getOperator(double market, double operator) {
+		Sheet MCCMNCSheet = wb.getSheetAt(4);
+		//i starts at one to avoid headings
+		for(int i=1; i<=MCCMNCSheet.getLastRowNum(); i++){
+			Cell mccCell = getCell(4, i, 0);
+			Cell mncCell = getCell(4, i, 1);
+			//TODO Validation necessary on previous two cells
+			if(mccCell.getNumericCellValue() == market && mncCell.getNumericCellValue() == operator ){
+				Cell operatorCell = getCell(4, i, 3);
+				return operatorCell.getStringCellValue();
+			}		
+		}
+		return "NOT FOUND!!";
+	}
+	public String getCountry(double market) {
+		Sheet MCCMNCSheet = wb.getSheetAt(4);
+		//i starts at one to avoid headings
+		for(int i=1; i<=MCCMNCSheet.getLastRowNum(); i++){
+			Cell tacCell = getCell(4, i, 0);
+			//TODO Validation necessary on previous two cells
+			if(tacCell.getNumericCellValue() == market){
+				Cell mccCell = getCell(4, i, 2);
+				return mccCell.getStringCellValue();
+			}		
+		}
+		return "NOT FOUND!!";
+	}
+	public double getMCC(double market) {
+		Sheet MCCMNCSheet = wb.getSheetAt(4);
+		//i starts at one to avoid headings
+		for(int i=1; i<=MCCMNCSheet.getLastRowNum(); i++){
+			Cell tacCell = getCell(4, i, 0);
+			//TODO Validation necessary on previous two cells
+			if(tacCell.getNumericCellValue() == market){
+				Cell mccCell = getCell(4, i, 0);
+				return mccCell.getNumericCellValue();
+			}		
+		}
+		return -1;
+	}
+	public String getInputMode(double ueType) {
+		Sheet ueTableSheet = wb.getSheetAt(3);
+		//i starts at one to avoid headings
+		for(int i=1; i<=ueTableSheet.getLastRowNum(); i++){
+			Cell tacCell = getCell(3, i, 0);
+			//TODO Validation necessary on previous two cells
+			if(tacCell.getNumericCellValue() == ueType){
+				Cell inputModeCell = getCell(3, i, 8);
+				return inputModeCell.getStringCellValue();
+			}
+			
+		}
+		return "NOT FOUND!";
+	}
+	public String getOS(double ueType) {
+		Sheet ueTableSheet = wb.getSheetAt(3);
+		//i starts at one to avoid headings
+		for(int i=1; i<=ueTableSheet.getLastRowNum(); i++){
+			Cell tacCell = getCell(3, i, 0);
+			//TODO Validation necessary on previous two cells
+			if(tacCell.getNumericCellValue() == ueType){
+				Cell osCell = getCell(3, i, 7);
+				return osCell.getStringCellValue();
+			}
+			
+		}
+		return "NOT FOUND!";
+	}
+	public String getUETableUEtype(double ueType) {
+		Sheet ueTableSheet = wb.getSheetAt(3);
+		//i starts at one to avoid headings
+		for(int i=1; i<=ueTableSheet.getLastRowNum(); i++){
+			Cell tacCell = getCell(3, i, 0);
+			//TODO Validation necessary on previous two cells
+			if(tacCell.getNumericCellValue() == ueType){
+				Cell ueTypeCell = getCell(3, i, 6);
+				return ueTypeCell.getStringCellValue();
+			}
+			
+		}
+		return "NOT FOUND!";
+	}
+	public String getVendorName(double ueType) {
+		Sheet ueTableSheet = wb.getSheetAt(3);
+		//i starts at one to avoid headings
+		for(int i=1; i<=ueTableSheet.getLastRowNum(); i++){
+			Cell tacCell = getCell(3, i, 0);
+			//TODO Validation necessary on previous two cells
+			if(tacCell.getNumericCellValue() == ueType){
+				Cell vendorCell = getCell(3, i, 5);
+				return vendorCell.getStringCellValue();
+			}
+			
+		}
+		return "NOT FOUND!";
+	}
+	public String getModel(double ueType) {
+		Sheet ueTableSheet = wb.getSheetAt(3);
+		//i starts at one to avoid headings
+		for(int i=1; i<=ueTableSheet.getLastRowNum(); i++){
+			Cell tacCell = getCell(3, i, 0);
+			//TODO Validation necessary on previous two cells
+			if(tacCell.getNumericCellValue() == ueType){
+				Cell modelCell = getCell(3, i, 4);
+				return modelCell.getStringCellValue();
+			}
+			
+		}
+		return "NOT FOUND!";
+	}	
+	//ACCESS CAPABILITY MAYBE needs to split into a list. 
+	public String getAccessCapability(double ueType) {
+		Sheet ueTableSheet = wb.getSheetAt(3);
+		//i starts at one to avoid headings
+		for(int i=1; i<=ueTableSheet.getLastRowNum(); i++){
+			Cell tacCell = getCell(3, i, 0);
+			//TODO Validation necessary on previous two cells
+			if(tacCell.getNumericCellValue() == ueType){
+				Cell accessCapabilityCell = getCell(3, i, 3);
+				return accessCapabilityCell.getStringCellValue();
+			}
+			
+		}
+		return "NOT FOUND!";
+	}
+	public String getManufacturer(double ueType) {
+		Sheet ueTableSheet = wb.getSheetAt(3);
+		//i starts at one to avoid headings
+		for(int i=1; i<=ueTableSheet.getLastRowNum(); i++){
+			Cell tacCell = getCell(3, i, 0);
+			//TODO Validation necessary on previous two cells
+			if(tacCell.getNumericCellValue() == ueType){
+				Cell manufacturerCell = getCell(3, i, 2);
+				return manufacturerCell.getStringCellValue();
+			}
+			
+		}
+		return "NOT FOUND!";
+	}
 	public String getMarketingName(double ueType) {
 		Sheet ueTableSheet = wb.getSheetAt(3);
 		//i starts at one to avoid headings
@@ -61,8 +213,8 @@ public class ImportExcel {
 			Cell tacCell = getCell(3, i, 0);
 			//TODO Validation necessary on previous two cells
 			if(tacCell.getNumericCellValue() == ueType){
-				Cell MarketingCell = getCell(3, i, 1);
-				return MarketingCell.getStringCellValue();
+				Cell marketingCell = getCell(3, i, 1);
+				return marketingCell.getStringCellValue();
 			}
 			
 		}
