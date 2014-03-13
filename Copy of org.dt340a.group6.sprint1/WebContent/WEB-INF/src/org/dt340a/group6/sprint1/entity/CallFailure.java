@@ -21,7 +21,7 @@ import javax.persistence.NamedQuery;
  @NamedQuery(name = "CallFailure.groupByTAC", query = "select o from CallFailure o where o.equipment.tAC=:TAC GROUP BY o.cause.eventId, o.cause.causeCode"),
  @NamedQuery(name = "CallFailure.countByEventAndCause", query = "SELECT count(*) FROM CallFailure o where o.equipment.tAC=:TAC and o.cause.eventId=:EVENT and o.cause.causeCode=:CAUSE"),
  @NamedQuery(name = "CallFailure.findAllBetween", query = "select o from CallFailure o where o.dateTime between :startDateTime and :endDateTime order by o.iMSI"),
- //@NamedQuery(name = "CallFailure.findImsiBetween", query = "select o from CallFailure o where o.dateTime between :startDateTime and :endDateTime where o.iMSI=:IMSI"),
+ @NamedQuery(name = "CallFailure.findImsiBetween", query = "select o from CallFailure o where o.dateTime between :startDateTime and :endDateTime and o.iMSI=:IMSI"),
  @NamedQuery(name = "CallFailure.findCountOfOccurancesForGivenIMSI", query = "select count(*) from CallFailure o where o.iMSI=:IMSI"),
  // @NamedQuery(name = "CallFailure.findByTACInTime", query = "select o from CallFailure o where o.equipment.tAC=:TAC"
 // 		+ " WHERE dateTime BETWEEN '09/16/1910 05:00:00' and '09/21/2030 09:00:00'"),
