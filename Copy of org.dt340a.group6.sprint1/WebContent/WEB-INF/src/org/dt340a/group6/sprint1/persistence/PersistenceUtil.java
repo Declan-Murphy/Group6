@@ -190,6 +190,18 @@ public class PersistenceUtil implements Serializable {
 		else 
 			return callFailures;
 	}
+	public static List<CallFailure> findCallByIMSIBetweenDate(String IMSI, Date startDateTime, Date endDateTime){
+		
+		EntityManager em = emf.createEntityManager();
+		List<CallFailure> callFailures = (List<CallFailure>) em.createNamedQuery("CallFailure.findImsiBetween").setParameter("IMSI", IMSI).setParameter("startDateTime", startDateTime).setParameter("endDateTime", endDateTime).getResultList();
+		em.close();
+		
+		if (callFailures.size() == 0)
+			return null;
+		else 
+			return callFailures;
+	}
+
 	public static List<CallFailure> findAllCallFailure(){
 		
 		EntityManager em = emf.createEntityManager();
@@ -277,4 +289,69 @@ public class PersistenceUtil implements Serializable {
          else 
                   return us09List;
      }
+     public static List<CallFailure> countCauseCode(int tAC, double cause, double event){
+         //eventId and o.causeCode =:causeCode
+         EntityManager em = emf.createEntityManager();
+         List<CallFailure> causeList = (List<CallFailure>) em.createNamedQuery("CallFailure.countByEventAndCause").setParameter("TAC", tAC).setParameter("EVENT", event).setParameter("CAUSE", cause).getResultList();
+         em.close();
+
+         if (causeList.size() == 0)
+             return null;
+         else 
+             return causeList;
+     }
+
+
+ public static List<CallFailure> groupCallFailureByTAC(int tac){
+         EntityManager em = emf.createEntityManager();
+         List<CallFailure> callFailures = (List<CallFailure>) em.createNamedQuery("CallFailure.groupByTAC").setParameter("TAC", tac).getResultList();
+         em.close();
+         if (callFailures.size() == 0)
+             return null;
+         else 
+             return callFailures;
+     }
+ public static List<CallFailure> findAllBetween(Date startDateTime, Date endDateTime) {
+		EntityManager em = emf.createEntityManager();
+		@SuppressWarnings("unchecked")
+		List<CallFailure> callFailures = (List<CallFailure>) em.createNamedQuery("CallFailure.findAllBetween").setParameter("startDateTime", startDateTime).setParameter("endDateTime", endDateTime).getResultList();
+		em.close();
+		if (callFailures.size() == 0)
+			return null;
+		else 
+			return callFailures;
+	}
+	
+	public static List<CallFailure> findCountOfOccurancesForGivenIMSI(String imsi) {
+		EntityManager em = emf.createEntityManager();
+		@SuppressWarnings("unchecked")
+		List<CallFailure> us12List = (List<CallFailure>) em.createNamedQuery("CallFailure.findCountOfOccurancesForGivenIMSI").setParameter("iMSI", imsi).getResultList();
+		
+		em.close();
+		if (us12List.size() == 0)
+			return null;
+		else 
+			return us12List;
+	}
+	public static List<CallFailure> findAllIMSIsWithCallFailureGivenTime(Date startDateTime, Date endDateTime) {
+		EntityManager em = emf.createEntityManager();
+		@SuppressWarnings("unchecked")
+		List<CallFailure> callFailures = (List<CallFailure>) em.createNamedQuery("CallFailure.findAllIMSIsWithCallFailureGivenTime").setParameter("startDateTime", startDateTime).setParameter("endDateTime", endDateTime).getResultList();
+		em.close();
+		System.out.print(callFailures.get(0).getBaseDataID());
+		if (callFailures.size() == 0)
+			return null;
+		else 
+			return callFailures;
+	}
+	public static List<CallFailure> findAll() {
+		EntityManager em = emf.createEntityManager();
+		@SuppressWarnings("unchecked")
+		List<CallFailure> callFailures = (List<CallFailure>) em.createNamedQuery("CallFailure.findAll").getResultList();
+		em.close();
+		if (callFailures.size() == 0)
+			return null;
+		else 
+			return callFailures;
+	}
 }

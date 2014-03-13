@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.dt340a.group6.sprint1.persistence.PersistenceUtil;
-import org.dt340a.group6.sprint1.query.ETACQuery;
 import org.dt340a.group6.sprint1.query.IMSIQuery;
 import org.dt340a.group6.sprint1.entity.CallFailure;
 import org.dt340a.group6.sprint1.entity.Equipment;
@@ -54,16 +53,7 @@ public class ModelQueryServlet extends HttpServlet{
 		
 //		start = new Date(113, 0 ,11, 17, 15);
 //		end = new Date(113, 0 ,11, 17, 18);
-		
-		if(endDate.after(startDate)){
-			System.out.println("end Time is after start Time");
-			System.out.println("date1; " + startDate.getDate());
-			System.out.println("date2; " + startDate.getTime());
-			System.out.println("year; " + startDate.getYear());
-			System.out.println("month; " + startDate.getMonth());
-			System.out.println("day; " + startDate.getDay());
-			System.out.println("date3; " + startDate.toString());
-		}
+
 				
 		List<Equipment> equipment =PersistenceUtil.findEquipmentByModel(model);
 		

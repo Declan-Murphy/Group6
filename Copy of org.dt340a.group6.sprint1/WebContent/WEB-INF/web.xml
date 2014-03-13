@@ -3,12 +3,8 @@
   <display-name>org.dt340a.group6.sprint1</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+
   <servlet>
     <servlet-name>imsiQuery</servlet-name>
     <servlet-class>org.dt340a.group6.sprint1.servlet.ImsiQueryServlet</servlet-class>
@@ -17,6 +13,25 @@
     <servlet-name>imsiQuery</servlet-name>
     <url-pattern>/imsiQuery</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>UserStory12Servlet</servlet-name>
+    <servlet-class>org.dt340a.group6.sprint1.servlet.UserStory12Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserStory12Servlet</servlet-name>
+    <url-pattern>/UserStory12Servlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>modelQuery</servlet-name>
+    <servlet-class>org.dt340a.group6.sprint1.servlet.ModelEventCauseQueryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>modelQuery</servlet-name>
+    <url-pattern>/modelQuery</url-pattern>
+  </servlet-mapping>
+  
     <servlet>
     <servlet-name>ETACQuery</servlet-name>
     <servlet-class>org.dt340a.group6.sprint1.servlet.ModelQueryServlet</servlet-class>
@@ -43,6 +58,8 @@
     <servlet-name>fileUpload</servlet-name>
     <url-pattern>/fileUpload</url-pattern>
   </servlet-mapping>
+  
+  
   
   <servlet>
 <servlet-name>LoginServlet</servlet-name>

@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>Dt340a - Group 6</title>
+		<link rel='icon' type='image/ico' href='http://www.ericsson.com/favicon.ico'/>
+		<link rel='stylesheet' type='text/css' href='css/mystyle.css'>
+		<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+	</head>
+
+	<body>
+		<div id='container'>
+			<div id='heading-container'>
+				<div id='eir-image'> 
+					<img alt='Ericsson' src='http://www.ericsson.com/shared/eipa/images/elogo.png'>   
+				</div>
+				<div id='dit-image'> 
+					<img alt='DIT' src='http://www.dit.ie/media/styleimages/dit_crest.gif' width='90px' height='90px'>  
+				</div> 
+				
+				<h1>Call Investigation Assistant</h1> 
+				<h2>Group 6</h2> 
+				<h3>Customer Service Representative View</h3>
+				<h4>User Story 12</h4>
+				<h4>As a Network Management Engineer I want to see the Top 10 IMSIs 
+				<br>that had call failures during a time period.</h4>
+            </div>
+            
+			<div id='inner-container' >
+			
+				<form method=GET action='UserStory12Servlet'>
+					<input type='hidden' name='userStoryNumber' value='us12'>
+					<p>Please select the date and time range to query for:</p>
+					Start Date and time: <input type="datetime-local" name="startDateTime">
+					End Date and time: <input type="datetime-local" name="endDateTime">
+					<input type='submit'>
+					<input Type='button' VALUE='Back' onClick='history.go(-1);return true;'>
+				</form>
+				
+			</div>
+		</div>
+		<div id='eric-multi'>
+			<img src='images/ebottomgrad.jpg' >
+		</div>
+	</body>
+</html>

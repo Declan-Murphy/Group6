@@ -145,10 +145,10 @@ margin-top: 13px;
 
 /*Table for incoming Data Styling*/
 
-#customers, #selectedTime
+#customers
 {
 font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
-/* width:500px; */
+width:500px;
 text-align: center;
 border-collapse:collapse;
 margin: auto;
