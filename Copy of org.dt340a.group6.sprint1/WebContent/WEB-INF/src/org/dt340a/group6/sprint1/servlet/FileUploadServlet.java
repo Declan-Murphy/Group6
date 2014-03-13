@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import org.dt340a.group6.sprint1.fileImport.CallFailureReader;
 import org.dt340a.group6.sprint1.fileImport.FileReader;
 import org.dt340a.group6.sprint1.persistence.PersistenceUtil;
 import org.dt340a.group6.sprint1.validation.validateExcelFile;
@@ -52,7 +53,7 @@ public class FileUploadServlet extends HttpServlet {
 			}
 			fos.close();
 			is.close();
-			response.sendRedirect("success.html");
+			//response.sendRedirect("success.html");
 		}
 /*
  * 
@@ -60,8 +61,10 @@ public class FileUploadServlet extends HttpServlet {
 		FileReader filereader = new FileReader(fileName);
 		if(new validateExcelFile(filereader).isXLSValid()){
 			PersistenceUtil.persistAll(fileName);
-			System.out.println("Upload complete @ "
-					+new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime()));
+//			System.out.println("Upload complete @ "
+//					+new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime()));
+			
+			response.sendRedirect("success.html?invalidCount="+CallFailureReader.getNumOfInvalidRows()+"&validCount="+ CallFailureReader.getNumOfValidRows());
 		}
 		else{
 			System.out.println("The Excel file was not valid");

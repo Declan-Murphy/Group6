@@ -35,7 +35,6 @@ public class PersistenceUtil implements Serializable {
 		callFailureReader = new CallFailureReader();
 		allMasterTableRows = new AllMasterTableRows();
 	}
-
 	public static void persistAll(String fileName) {
 		PersistenceUtil.filePath = fileName;
 		PersistenceUtil persistenceUtil = new PersistenceUtil();
@@ -55,49 +54,54 @@ public class PersistenceUtil implements Serializable {
 	}
 
 	public void persistFailureClasses(EntityManager entityManager) {
-		System.out.println("FailureClasses start");
+		//System.out.println("FailureClasses start");
 		allMasterTableRows.setFailureClasses(failureClassReader.getAllFailureClassRows());
 		for (Object row : allMasterTableRows.getFailureClasses()) {
-			entityManager.persist(row);
+//            entityManager.persist(row);
+            entityManager.merge(row);
 		}
-		System.out.println("FailureClasses end");
+	//	System.out.println("FailureClasses end");
 	}
 
 	public void persistEventCauses(EntityManager entityManager) {
-		System.out.println("EventCauses start");
+	//	System.out.println("EventCauses start");
 		allMasterTableRows.setCauses(causeReader.getAllEventCauseRows());
 		for (Object row : allMasterTableRows.getCauses()) {
-			entityManager.persist(row);
+//          entityManager.persist(row);
+          entityManager.merge(row);
 		}
-		System.out.println("EventCauses end");
+		//System.out.println("EventCauses end");
 	}
 
 	public void persistCountryOperators(EntityManager entityManager) {
-		System.out.println("CountryOperators start");
+	//	System.out.println("CountryOperators start");
 		allMasterTableRows.setCountryOperators(countryOperatorReader
 				.getAllCountryOperatorRows());
 		for (Object row : allMasterTableRows.getCountryOperators()) {
-			entityManager.persist(row);
+//          entityManager.persist(row);
+          entityManager.merge(row);
 		}
-		System.out.println("CountryOperators end");
+	//	System.out.println("CountryOperators end");
 	}
 
 	public void persistEquipment(EntityManager entityManager) {
-		System.out.println("Equipment start");
+	//	System.out.println("Equipment start");
 		allMasterTableRows.setEquipment(equipmentReader.getAllEquipmentRows());
 		for (Object row : allMasterTableRows.getEquipment()) {
-			entityManager.persist(row);
+//          entityManager.persist(row);
+          entityManager.merge(row);
 		}
-		System.out.println("Equipment end");
+	//	System.out.println("Equipment end");
 	}
 
 	public void persistCallFailures(EntityManager entityManager) {
-		System.out.println("CallFailures start");
+	//	System.out.println("CallFailures start");
 		for (Object row : callFailureReader
 				.getAllCallFailureRows(allMasterTableRows)) {
-			entityManager.persist(row);
+//          entityManager.persist(row);
+          entityManager.merge(row);
 		}
-		System.out.println("CallFailures end");
+	//	System.out.println("CallFailures end");
 	}
 
 	public static void persistAll(List<Object> entityList) {
@@ -263,4 +267,14 @@ public class PersistenceUtil implements Serializable {
           else 
                    return callFailures;
     }
+     public static List<List> findCountBetweenTimesTotalDuration(Date startDateTime, Date endDateTime) {
+         EntityManager em = emf.createEntityManager();
+         List<List> us09List = (List<List>) em.createNamedQuery("CallFailure.findCountBetweenTimesTotalDuration").setParameter("startDateTime", startDateTime).setParameter("endDateTime", endDateTime).getResultList();
+         em.close();
+         
+         if (us09List.size() == 0)
+                  return null;
+         else 
+                  return us09List;
+     }
 }

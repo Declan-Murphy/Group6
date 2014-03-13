@@ -14,7 +14,9 @@ public class CallFailureReader {
 	private List<Object> causes;
 	private List<Object> countryOperators;
 	private List<Object> equipmentList;
-
+	private static int numOfInvalidRows;
+	private static int numOfValidRows;
+	
 	public CallFailureReader() {
 		fileReader = new FileReader();
 	}
@@ -24,15 +26,21 @@ public class CallFailureReader {
 			AllMasterTableRows allMasterTableRows) {
 		setLocalTableLists(allMasterTableRows);
 		int length = fileReader.getSheetColumnLength(0);
+		numOfInvalidRows=0;
+		numOfValidRows=0;
 		ArrayList<Object> callFailures = new ArrayList<>(length);
 		for (int i = 1; i < length + 1; i++) {
 			try {
 				callFailures.add(getOneCallFailureRow(i));
+				numOfValidRows++;
 			} catch (ForeignTableException exception) {
-				System.out.print("i = " + i + " ");
-				System.out.println(exception.getMessage());
+				//System.out.print("i = " + i + " ");
+				//System.out.println(exception.getMessage());
+				numOfInvalidRows++;
 			}
 		}
+		System.out.println("valid rows = " + numOfInvalidRows + " ");
+		System.out.println("Ivalid rows = " + numOfValidRows + " ");
 		return callFailures;
 	}
 
@@ -209,6 +217,13 @@ public class CallFailureReader {
 		// Set the cell type to string to avoid number rounding errors
 		cell.setCellType(1);
 		return cell.getStringCellValue();
+	}
+
+	public static int getNumOfInvalidRows() {
+		return numOfInvalidRows;
+	}
+	public static int getNumOfValidRows() {
+		return numOfValidRows;
 	}
 
 }

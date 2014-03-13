@@ -25,6 +25,16 @@
     <servlet-name>ETACQuery</servlet-name>
     <url-pattern>/ETACQuery</url-pattern>
   </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>us09Query</servlet-name>
+    <servlet-class>org.dt340a.group6.sprint1.servlet.UserStory09Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>us09Query</servlet-name>
+    <url-pattern>/us09Query</url-pattern>
+    </servlet-mapping> 
+  
   <servlet>
     <servlet-name>fileUpload</servlet-name>
     <servlet-class>org.dt340a.group6.sprint1.servlet.FileUploadServlet</servlet-class>

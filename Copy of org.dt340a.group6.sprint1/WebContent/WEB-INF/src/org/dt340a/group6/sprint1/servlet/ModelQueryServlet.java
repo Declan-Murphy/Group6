@@ -104,11 +104,13 @@ public class ModelQueryServlet extends HttpServlet{
 	
 	private void mid(PrintWriter out, List<Equipment> equipment) {
 		int count=0;
-		out.println("                    <tr class='alt'>");
-//		out.println("                      <td>Model Name:</td>");
-//        out.println("                      <td>"+model+"</td>");
-//        out.println("                      <td></td>");
-		out.println("                    </tr>");
+		SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        out.println("                    <tr class='alt'>");
+        out.println("                      <th>From date:</th>");
+        out.println("                      <td align='center'>" + dateFormatter.format(startDate) + "</td>");
+        out.println("                      <th>To date:</th>");
+        out.println("                      <td align='center'>" + dateFormatter.format(endDate) + "</td>");
+        out.println("                    </tr>");
 		out.println("                    <tr>");		
 		out.println("                      <th>Model</th>");
         out.println("                      <th>TAC</th>");

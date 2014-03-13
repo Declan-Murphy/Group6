@@ -6,11 +6,22 @@
         <link rel="icon" type="image/ico" href="http://www.ericsson.com/favicon.ico"/>
         <link rel="stylesheet" type="text/css" href="css/mystyle.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+       
+
 </head>
 
 
     <body>
+       <script> 
+       function getUrlVars() {
+    	   var vars = {};
+    	   var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+    	     vars[key] = value;
+    	   });
+    	   return vars;
+    	 }
+       
+       </script> 
         <div id="container">
         
             <div id="heading-container">
@@ -42,8 +53,14 @@
             <div id="upload-container">
                 
                 <h3>File Uploaded Successfully</h3>
-                
-                
+                <script>
+				document.write('The number of valid rows that have been added to the database is ' + getUrlVars()["validCount"]);
+				</script>
+				<br>
+				<script>
+				document.write('The number of invalid rows that have not been added to the database is ' + getUrlVars()["invalidCount"]);
+				</script>
+                               
             </div>    
         </div>
         
