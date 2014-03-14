@@ -235,10 +235,10 @@ public class PersistenceUtil implements Serializable {
 		else 
 			return causeList;
 	}
-	public static List<CallFailure> findCallFailureByTACInTime(int tac){
+	public static List<CallFailure> findCallFailureByTACInTime(int tac,Date startDateTime, Date endDateTime){
 		
 		EntityManager em = emf.createEntityManager();
-		List<CallFailure> callFailures = (List<CallFailure>) em.createNamedQuery("CallFailure.findByTACInTime").setParameter("TAC", tac).getResultList();
+		List<CallFailure> callFailures = (List<CallFailure>) em.createNamedQuery("CallFailure.findByTACInTime").setParameter("TAC", tac).setParameter("startDateTime", startDateTime).setParameter("endDateTime", endDateTime).getResultList();
 		em.close();
 		
 		if (callFailures.size() == 0)
@@ -246,6 +246,17 @@ public class PersistenceUtil implements Serializable {
 		else 
 			return callFailures;
 	}
+//	public static List<CallFailure> findCallByIMSIBetweenDate(String IMSI, Date startDateTime, Date endDateTime){
+//		
+//		EntityManager em = emf.createEntityManager();
+//		List<CallFailure> callFailures = (List<CallFailure>) em.createNamedQuery("CallFailure.findImsiBetween").setParameter("IMSI", IMSI).setParameter("startDateTime", startDateTime).setParameter("endDateTime", endDateTime).getResultList();
+//		em.close();
+//		
+//		if (callFailures.size() == 0)
+//			return null;
+//		else 
+//			return callFailures;
+//	}
 	
 	public static List<Equipment> findEquipmentByEquipment_tAC(int eTAC){		
 		EntityManager em = emf.createEntityManager();
