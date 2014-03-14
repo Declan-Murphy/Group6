@@ -40,14 +40,6 @@ public class FileReader {
 		this(PersistenceUtil.filePath);
 	}
 
-	public static void main(String args[]) {
-		try {
-			new FileReader("test.xls");
-		} catch (Exception exception) {
-			exception.printStackTrace();
-		}
-	}
-
 
 	public Cell getCell(int sheetNumber, int rowNumber, int columnNumber) {
 		Sheet sheet = wb.getSheetAt(sheetNumber);
