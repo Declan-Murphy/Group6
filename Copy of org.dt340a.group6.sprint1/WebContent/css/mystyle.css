@@ -141,6 +141,15 @@ margin-top: 13px;
         margin: 15px; 
 }
 
+.wrapper {
+    text-align: center;
+}
+
+.centre {
+	position: absolute:
+    top: 50%;
+}
+
 
 
 /*Table for incoming Data Styling*/
