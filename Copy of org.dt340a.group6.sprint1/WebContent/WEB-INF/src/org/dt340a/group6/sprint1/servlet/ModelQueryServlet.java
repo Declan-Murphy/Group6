@@ -118,17 +118,19 @@ public class ModelQueryServlet extends HttpServlet{
 				out.println("                      <td>" + equip.getModel()+ "</td>");
                 out.println("                      <td>" + equip.gettAC() + "</td>");
                 
-                List<CallFailure> callFailures = PersistenceUtil.findCallFailureByTAC(equip.gettAC());
+                //List<CallFailure> callFailures = PersistenceUtil.findCallFailureByTAC(equip.gettAC());
+                List<CallFailure> callFailures = PersistenceUtil.findCallFailureByTACInTime(equip.gettAC(),startDate,endDate);
                 if(callFailures != null){
                 	out.println("                      <td>" + callFailures.size() + "</td>");
-                	int validCount=0;
-                	for(CallFailure cf : callFailures ){
-                		if( cf.getDateTime().after(startDate) && cf.getDateTime().before(endDate)){
-                			validCount++;
-                		}
+                	//int validCount=0;
+                	//for(CallFailure cf : callFailures ){
+                		//if( cf.getDateTime().after(startDate) && cf.getDateTime().before(endDate)){
+                		//	validCount++;
+                		//}
                		
-                	}
-                	out.println("                      <td>" + validCount + "</td>");
+                	//}
+                	//out.println("                      <td>" + validCount + "</td>");
+                	out.println("                      <td>" + callFailures.size() + "</td>");
                 }
                 else{
                 	out.println("                      <td>" + 0 + "</td>");
