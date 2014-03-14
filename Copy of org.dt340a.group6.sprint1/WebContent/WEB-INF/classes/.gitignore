@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /META-INF
 /entity
 /org
@@ -7,3 +8,7 @@
 /Register.class
 /SuccessPage.class
 /Tests.class
+=======
+/org
+/persistence
+>>>>>>> branch 'master' of https://github.com/Declan-Murphy/Group6/
