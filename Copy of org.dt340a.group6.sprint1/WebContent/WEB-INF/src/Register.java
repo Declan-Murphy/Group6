@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 
 import org.dt340a.group6.sprint1.persistence.UserConfig;
 
-//import main.*;
 import persistence.*;
 import entity.*;
 
