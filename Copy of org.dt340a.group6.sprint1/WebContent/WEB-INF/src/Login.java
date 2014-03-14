@@ -1,4 +1,4 @@
-package org.dt340a.group6.sprint1.servlet;
+
 
 import org.dt340a.group6.sprint1.servlet.ConnectionFactory;
 
@@ -19,14 +19,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class LoginServlet extends HttpServlet {
+public class Login extends HttpServlet {
 	Connection connection = null;
 	PreparedStatement loginStatement = null;
 	PreparedStatement toDoStatement = null;
 	ResultSet loginResultSet = null;
 	ResultSet toDoResultSet = null;
 	
-	public LoginServlet(){
+	public Login(){
 		
 	}
 	public void doGet(HttpServletRequest request,HttpServletResponse response)throws IOException, ServletException{

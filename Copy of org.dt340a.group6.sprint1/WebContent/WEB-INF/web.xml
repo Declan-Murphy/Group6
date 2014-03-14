@@ -62,8 +62,8 @@
   
   
   <servlet>
-<servlet-name>LoginServlet</servlet-name>
-<servlet-class>org.dt340a.group6.sprint1.servlet.LoginServlet</servlet-class>
+<servlet-name>Login</servlet-name>
+<servlet-class>Login</servlet-class>
 </servlet>
 
 <servlet>
@@ -93,7 +93,7 @@
 <!-- servlet mapping -->
 
 <servlet-mapping>
-<servlet-name>LoginServlet</servlet-name>
+<servlet-name>Login</servlet-name>
 <url-pattern>/login</url-pattern>
 </servlet-mapping>
 
