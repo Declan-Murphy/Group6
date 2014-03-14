@@ -63,7 +63,7 @@
   
   <servlet>
 <servlet-name>LoginServlet</servlet-name>
-<servlet-class>LoginServlet</servlet-class>
+<servlet-class>org.dt340a.group6.sprint1.servlet.LoginServlet</servlet-class>
 </servlet>
 
 <servlet>

@@ -1,10 +1,11 @@
-package main;
+package org.dt340a.group6.sprint1.persistence;
 
 import java.util.List;
 
+import org.dt340a.group6.sprint1.entity.User;
+
 import persistence.PersistenceUtil;
 import entity.ListItem;
-import entity.User;
 
 
 public class UserConfig {

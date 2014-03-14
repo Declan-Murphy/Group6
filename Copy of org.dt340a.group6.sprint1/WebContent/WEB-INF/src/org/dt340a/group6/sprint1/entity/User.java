@@ -1,4 +1,4 @@
-package entity;
+package org.dt340a.group6.sprint1.entity;
 
 
 import javax.persistence.Entity;

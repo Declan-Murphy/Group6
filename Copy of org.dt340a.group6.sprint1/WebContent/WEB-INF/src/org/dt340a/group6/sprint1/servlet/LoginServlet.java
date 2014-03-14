@@ -1,3 +1,6 @@
+package org.dt340a.group6.sprint1.servlet;
+
+import org.dt340a.group6.sprint1.servlet.ConnectionFactory;
 
 import java.io.IOException;
 import java.io.PrintWriter;

@@ -1,5 +1,4 @@
 import static org.junit.Assert.*;
-import main.UserConfig;
 
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -7,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.dt340a.group6.sprint1.persistence.UserConfig;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
