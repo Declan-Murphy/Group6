@@ -16,7 +16,7 @@ import org.dt340a.group6.sprint1.persistence.PersistenceUtil;
 import org.dt340a.group6.sprint1.entity.CallFailure;
 import org.dt340a.group6.sprint1.validation.PrimitiveCheck;
 
-public class ListIMSIs extends HttpServlet {
+public class IMSIListServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -4182847637670709900L;
 	String fromText;
@@ -24,7 +24,7 @@ public class ListIMSIs extends HttpServlet {
 	Date from;
 	Date to;
 
-	public ListIMSIs() {
+	public IMSIListServlet() {
 		super();
 	}
 
