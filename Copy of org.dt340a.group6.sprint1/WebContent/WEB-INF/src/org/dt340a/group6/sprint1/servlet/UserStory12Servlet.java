@@ -23,7 +23,6 @@ import org.dt340a.group6.sprint1.query.UserStory12Query;
 /**
  * Servlet implementation class User12Servlet
  */
-//@WebServlet("/User12Servlet")
 public class UserStory12Servlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;

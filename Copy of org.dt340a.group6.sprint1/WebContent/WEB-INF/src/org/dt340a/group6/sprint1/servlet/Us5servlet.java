@@ -21,7 +21,6 @@ import org.junit.internal.runners.statements.Fail;
 /**
  * Servlet implementation class Us5servlet
  */
-//@WebServlet("/Us5servlet")
 public class Us5servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private java.util.Date startDate = null;
