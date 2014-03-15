@@ -49,6 +49,15 @@
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>us08Query</servlet-name>
+		<servlet-class>org.dt340a.group6.sprint1.servlet.ModelQueryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>us08Query</servlet-name>
+		<url-pattern>/us08Query</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>us09Query</servlet-name>
 		<servlet-class>org.dt340a.group6.sprint1.servlet.UserStory09Servlet</servlet-class>
 	</servlet>

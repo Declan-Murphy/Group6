@@ -166,8 +166,10 @@ public class ModelQueryServlet extends HttpServlet{
 		out.println("                <h3>Support Engineer</h3>");
 		out.println("            </div>");
 		out.println("            <div id='inner-container' >  ");
-		out.println("            <form method=GET action='ETACQuery'>");
-		out.println("               <input class='submissionfield' type='text' name='username' placeholder='Please Enter a Model Name Here' required='required' >");
+		out.println("            <form method=GET action='us08Query'>");
+		out.println("               <input class='submissionfield' type='text' name='model' placeholder='Please Enter a Model Name Here' required='required' ><br>");
+		out.println(" Start (date and time): <input type='datetime-local' name='starttime'  value='2013-01-01T00:00' required='required'><br> ");
+		out.println(" End (date and time): <input type='datetime-local' name='endtime'  value='2014-01-01T00:00' required='required'> <br>");
 		out.println("               <input type='submit'>");
 		out.println("               <input Type='button' VALUE='Back' onClick='history.go(-2);return true;'>");
 		out.println("            </form>");

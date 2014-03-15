@@ -28,13 +28,13 @@
 
 		<div id='inner-container'>
 
-			<form method=GET action='ETACQuery'>
+			<form method=GET action='us08Query'>
 				<input class='submissionfield' type='text' name='model'
 					placeholder='Please Enter an Model Name Here' required='required'><br>
 					
 
-				Start (date and time): <input type="datetime-local" name="starttime"required='required'><br> 
-					End (date and time): <input type="datetime-local" name="endtime" required='required'> <br>
+				Start (date and time): <input type="datetime-local" name="starttime"  value="2013-01-01T00:00" required='required'><br> 
+					End (date and time): <input type="datetime-local" name="endtime"  value="2014-01-01T00:00" required='required'> <br>
 					<center>
 					<input class='button' type='submit'> 
 					<input class='button' Type='button' VALUE='Back'onClick='history.go(-1);return true;'>
