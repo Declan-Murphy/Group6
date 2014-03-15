@@ -23,16 +23,18 @@
                 <h1>Call Investigation Assistant</h1> 
                 <h2>Group 6</h2> 
                 <h3>Network Management Engineer View</h3>
-           
+           	    <div class="wrapper">
+					<a href="netMgmtEngMenu.html"><button class='button centre'>Home Page</button></a>
+					<a href="index.html"><button class='button centre'>Log out</button></a>
+				</div>
             </div>
             
-           <div id='inner-container' >  
-              <div><h4>Select the start date and end date to average over Call Failures:</h4></div>
+           <div class="wrapper" id='inner-container' >  
+              <div><h3>Select the start date and end date to average over Call Failures:</h3></div>
               <form method=GET action='us09Query'>
-                <input class='submissionfield' type='datetime-local' name='startdate' value="2013-01-01T00:00" required='required'>
-                <input class='submissionfield' type='datetime-local' name='enddate' value="2014-01-01T00:00" required='required'>
-				<input type='submit'>
-                <input Type='button' VALUE='Back' onClick='history.go(-1);return true;'>
+                <strong>From (date and time):</strong><input class='submissionfield' type='datetime-local' name='startdate' value="2013-01-01T00:00" required='required'>
+                <strong>To (date and time):</strong> <input class='submissionfield' type='datetime-local' name='enddate' value="2014-01-01T00:00" required='required'><br/>
+				<input class='button' type='submit'>
                 </form>
             
             </div>          
