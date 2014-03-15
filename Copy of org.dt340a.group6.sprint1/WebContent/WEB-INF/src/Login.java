@@ -36,7 +36,7 @@ public class Login extends HttpServlet {
 		String userPass = request.getParameter("userPassWord");
 
 		try {
-			String loginQueryString = "SELECT username, password, userType FROM user WHERE username = ? and password=?";
+			String loginQueryString = "SELECT username, password, userType FROM User WHERE username = ? and password=?";
 			// String loginQueryString =
 			// "select distinct e.model, c.cause_eventId, c.cause_causeCode, count(*) from equipment e, callfailure c where c.equipment_tac=e.tAC and e.model='vea3' group by c.cause_eventId, c.cause_causeCode;";
 			connection = ConnectionFactory.getInstance().getConnection();
