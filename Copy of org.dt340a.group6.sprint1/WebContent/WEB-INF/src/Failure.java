@@ -38,9 +38,6 @@ public class Failure extends HttpServlet{
 		out.println("<h3>Login fail<h3><br> ");
 		out.println(" <a href='index.html'><button class='button'>Try Again</button></a>");	
 		out.println("</center>");
-		out.println("            <div id='inner-container'>");
-
-		out.println("            </div>");
 		out.println("         </div>");
 		out.println("         <div id='eric-multi'>");
 		out.println("              <img src='images/ebottomgrad.jpg' >");
