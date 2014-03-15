@@ -170,8 +170,7 @@ public class ModelQueryServlet extends HttpServlet{
 		out.println("               <input class='submissionfield' type='text' name='model' placeholder='Please Enter a Model Name Here' required='required' ><br>");
 		out.println(" Start (date and time): <input type='datetime-local' name='starttime'  value='2013-01-01T00:00' required='required'><br> ");
 		out.println(" End (date and time): <input type='datetime-local' name='endtime'  value='2014-01-01T00:00' required='required'> <br>");
-		out.println("               <input type='submit'>");
-		out.println("               <input Type='button' VALUE='Back' onClick='history.go(-2);return true;'>");
+		out.println("            <center><input class='button' type='submit'></center>");
 		out.println("            </form>");
 		out.println("            </div>");
 		out.println("            <div id='inner-container'>");
@@ -182,6 +181,9 @@ public class ModelQueryServlet extends HttpServlet{
 		out.println("");
 		out.println("                </table>");
 		out.println("            </div>");
+		out.println("            <div class='wrapper'>");
+		out.println("            <a href='supEngMenu.html'><button class='button centre'>Back</button></a>");
+		out.println("            </div>");		
 		out.println("        </div>");
 		out.println("         <div id='eric-multi'>");
 		out.println("                       <img src='images/ebottomgrad.jpg' >");

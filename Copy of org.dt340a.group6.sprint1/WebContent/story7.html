@@ -27,16 +27,20 @@
 			<h1>Call Investigation Assistant</h1>
 			<h2>Group 6</h2>
 			<h3>Support Engineer View</h3>
+			
+			<div class="wrapper">
+					<a href="supEngMenu.html"><button class='button centre'>Home Page</button></a>
+					<a href="index.html"><button class='button centre'>Log out</button></a>
+			</div>
 
 		</div>
 
 		<div id='inner-container'>
 		<h3>List all IMSIs that have failures between these times.</h3>
 			<form method=GET action='ListIMSIs'>
-				From (date and time): <input type="datetime-local"
-					name="from" value='2013-01-01T00:00'> To (date and time): <input
-					type="datetime-local" name="to" value='2014-01-01T00:00'> <input type="submit">
-
+					From (date and time): <input type="datetime-local" name="from" value='2013-01-01T00:00'>
+					To (date and time): <input type="datetime-local" name="to" value='2014-01-01T00:00'>
+					<input type="submit">
 			</form>
 
 			<!-- 			<form method=GET action='imsiQuery'>
