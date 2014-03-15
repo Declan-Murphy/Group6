@@ -16,6 +16,7 @@ import org.dt340a.group6.sprint1.persistence.PersistenceUtil;
 import org.dt340a.group6.sprint1.entity.CallFailure;
 import org.dt340a.group6.sprint1.validation.PrimitiveCheck;
 
+@WebServlet("/ListIMSIs")
 public class IMSIListServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -4182847637670709900L;
@@ -113,8 +114,8 @@ public class IMSIListServlet extends HttpServlet {
 		out.println("<p>List all IMSIs that have failures between these times.</p>");
 		out.println("		<form method=GET action='ListIMSIs'>			"
 				+ "From (date and time): <input type='datetime-local'			"
-				+ "	name='from'> To (date and time): <input		"
-				+ "		type='datetime-local' name='to'> <input type='submit'>	"
+				+ "	name='from' value='2013-01-01T00:00'> To (date and time): <input		"
+				+ "		type='datetime-local' name='to' value='2014-01-01T00:00'> <input type='submit'>	"
 				+ "	</form>");
 		out.println("            </div>");
 		out.println("            <div id='inner-container'>");
