@@ -19,7 +19,7 @@ import org.dt340a.group6.sprint1.fileImport.FileReader;
 import org.dt340a.group6.sprint1.persistence.PersistenceUtil;
 import org.dt340a.group6.sprint1.validation.validateExcelFile;
 
-@WebServlet ("/upload")
+//@WebServlet ("/upload")
 @MultipartConfig
 public class FileUploadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

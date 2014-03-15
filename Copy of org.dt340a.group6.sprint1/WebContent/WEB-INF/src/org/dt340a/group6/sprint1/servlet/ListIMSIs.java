@@ -16,7 +16,7 @@ import org.dt340a.group6.sprint1.persistence.PersistenceUtil;
 import org.dt340a.group6.sprint1.entity.CallFailure;
 import org.dt340a.group6.sprint1.validation.PrimitiveCheck;
 
-@WebServlet("/ListIMSIs")
+//@WebServlet("/ListIMSIs")
 public class ListIMSIs extends HttpServlet {
 
 	private static final long serialVersionUID = -4182847637670709900L;
