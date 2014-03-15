@@ -18,6 +18,24 @@
     width: auto; 
 }
 
+#login-container {
+   
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 2px solid #EEEEEE;
+    box-shadow: 5px 5px 5px #888888;
+    border-radius: 5px;
+    float: none;
+    overflow: hidden;
+    padding: 1em;
+    padding-top:40px;
+    padding-bottom:40px;
+    width: 600px; 
+    margin:0 auto;
+    text-align:center;
+    margin-bottom:2em ;
+}
+
+
 #home-container {
    
     background: none repeat scroll 0 0 #FFFFFF;
@@ -68,8 +86,7 @@
 
 body{
     background-color: #F8F8F8;
-    margin:0px;
-    
+
 }
 
 form{
