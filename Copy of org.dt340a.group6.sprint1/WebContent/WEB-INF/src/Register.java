@@ -40,11 +40,11 @@ public class Register extends HttpServlet {
 		
 		
 		if(user != null){
-			response.sendRedirect("./RegistrationFail.html");
+			response.sendRedirect("RegistrationFailed.html");
 		}
 		else if(!userPass.equals(userRePass)){
 			passwordMisMatch(out);
-			response.sendRedirect("./PasswordMisMatchRegistrationFail.html");
+			response.sendRedirect("PasswordMisMatchRegistrationFailed.html");
 		}
 		else{
 			
