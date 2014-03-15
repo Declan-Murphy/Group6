@@ -25,11 +25,11 @@ public class Register extends HttpServlet {
 		String userType = request.getParameter("userType");
 		
 		HttpSession session = request.getSession(false);
-		out.println(userName + " has been registered ");
-		out.println("<br>");
-		out.println("<a href='register.html'>Back</a>");
-		out.println("</center>");
-		out.println("</h1></body>");
+//		out.println(userName + " has been registered ");
+//		out.println("<br>");
+//		out.println("<a href='register.html'>Back</a>");
+//		out.println("</center>");
+//		out.println("</h1></body>");
 		
 		User user = null;
 		user = PersistenceUtil.findUserByUsername(userName);
