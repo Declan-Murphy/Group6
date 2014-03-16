@@ -408,23 +408,6 @@ public class PersistenceUtil implements Serializable {
 			return us12List;
 	}
 
-	public static List<CallFailure> findAllIMSIsWithCallFailureGivenTime(
-			Date startDateTime, Date endDateTime) {
-		EntityManager em = emf.createEntityManager();
-		@SuppressWarnings("unchecked")
-		List<CallFailure> callFailures = (List<CallFailure>) em
-				.createNamedQuery(
-						"CallFailure.findAllIMSIsWithCallFailureGivenTime")
-				.setParameter("startDateTime", startDateTime)
-				.setParameter("endDateTime", endDateTime).getResultList();
-		em.close();
-		System.out.print(callFailures.get(0).getBaseDataID());
-		if (callFailures.size() == 0)
-			return null;
-		else
-			return callFailures;
-	}
-
 	public static List<CallFailure> findAll() {
 		EntityManager em = emf.createEntityManager();
 		@SuppressWarnings("unchecked")

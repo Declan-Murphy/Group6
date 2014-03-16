@@ -2,6 +2,9 @@ package org.dt340a.group6.sprint1.persistence;
 
 import static org.junit.Assert.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.dt340a.group6.sprint1.entity.CallFailure;
@@ -152,11 +155,6 @@ public class PersistenceUtilTest {
 	}
 
 	@Test
-	public final void testFindAllIMSIsWithCallFailureGivenTime() {
-		
-	}
-
-	@Test
 	public final void testFindAll() {
 		assertSame(PersistenceUtil.findAll().get(0).getClass(), CallFailure.class);
 		assertNotSame(PersistenceUtil.findAll().get(0).getClass(), Cause.class);
@@ -170,8 +168,10 @@ public class PersistenceUtilTest {
 
 	@Test
 	public final void testFindUserByUsername() {
-//		assertSame(PersistenceUtil.findAllUsers().get(0).getClass(), User.class);
-//		assertNotSame(PersistenceUtil.findAllUsers().get(0).getClass(), CallFailure.class);
+		assertSame(PersistenceUtil.findUserByUsername("admin").getClass(), User.class);
+		assertNotSame(PersistenceUtil.findUserByUsername("admin").getClass(), Cause.class);
+		assertEquals(PersistenceUtil.findUserByUsername("admin").getUsername(), "admin");
+		assertNotEquals(PersistenceUtil.findUserByUsername("admin").getUsername(), "admin!");
 	}
 
 }
