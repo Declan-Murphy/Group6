@@ -24,8 +24,7 @@ public class Tests {
 	public static void testSetup() throws SQLException {  
 		connection =ConnectionFactory.getInstance().getConnection();
 		Persist = new UserConfig();
-		Persist.createUser("TestUser","TestPassword", "Support Engineer");
-		Persist.createListItem("TestUser","TestListItem");		
+		Persist.createUser("TestUser","TestPassword", "Support Engineer");	
 	}
 	
 //	@AfterClass

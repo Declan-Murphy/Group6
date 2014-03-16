@@ -84,20 +84,4 @@
     <servlet-name>RegisterServlet</servlet-name>
     <url-pattern>/register</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>Delete</servlet-name>
-    <servlet-class>Delete</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Delete</servlet-name>
-    <url-pattern>/delete</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>Insert</servlet-name>
-    <servlet-class>Insert</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Insert</servlet-name>
-    <url-pattern>/insert</url-pattern>
-  </servlet-mapping>
 </web-app>

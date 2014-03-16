@@ -14,7 +14,6 @@ import org.dt340a.group6.sprint1.entity.User;
 import org.dt340a.group6.sprint1.persistence.UserConfig;
 
 import persistence.*;
-import entity.*;
 
 public class RegisterServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

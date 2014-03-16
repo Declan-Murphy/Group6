@@ -9,8 +9,6 @@ import javax.persistence.Persistence;
 
 import org.dt340a.group6.sprint1.entity.User;
 
-import entity.ListItem;
-
 
 
 public class PersistenceUtil implements Serializable {
@@ -70,35 +68,6 @@ public class PersistenceUtil implements Serializable {
 			return null;
 		else 
 			return users.get(0);
-	}
-	
-	public static List<ListItem> findAllItems(){
-		EntityManager em = emf.createEntityManager();
-		List<ListItem> items = (List<ListItem>) em.createNamedQuery("ListItem.findAll").getResultList();
-		em.close();		
-		return items;		
-	}
-	public static ListItem findListItem(User user, String content){
-		EntityManager em = emf.createEntityManager();
-		List<ListItem> items = (List<ListItem>) em.createNamedQuery("ListItem.findAll").getResultList();
-		for(ListItem item : items){
-			if(item.getUser().getId() == user.getId() && item.getItemContent().equals(content)){
-				return item;
-			}
-		}
-		em.close();	
-		return null;		
-	}
-	public static ListItem findListItemByUserId(int userId){
-		
-		EntityManager em = emf.createEntityManager();
-		List<ListItem> items = (List<ListItem>) em.createNamedQuery("ListItem.findByUserId").setParameter("userId", userId).getResultList();
-		em.close();
-		
-		if (items.size() == 0)
-			return null;
-		else 
-			return items.get(0);
 	}
 }
 
