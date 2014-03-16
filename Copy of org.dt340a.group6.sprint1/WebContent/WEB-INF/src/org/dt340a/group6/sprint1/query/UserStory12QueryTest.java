@@ -8,21 +8,17 @@ import org.junit.Test;
 import org.mockito.Mockito;
 import org.dt340a.group6.sprint1.entity.CallFailure;
 import org.dt340a.group6.sprint1.entity.Cause;
-import org.dt340a.group6.sprint1.persistence.PersistenceUtil;
 import org.dt340a.group6.sprint1.query.*;
 
 public class UserStory12QueryTest {
 
 	@Test
 	public final void testCorrectReturnTypeFindAllIMSIsWithCallFailureGivenTime() {
-		UserStory12Query mockedQueryClass = Mockito.mock(UserStory12Query.class);
-		List<CallFailure> mockedCallFailureList = Mockito.mock(List.class);
-		Mockito.when(mockedQueryClass.findAll()).thenReturn(mockedCallFailureList);
-		assertSame(mockedQueryClass.findAll(), mockedCallFailureList);
+		
 	}
 	
 	@Test
-	public final void testNotIncorrectReturnTypeFindAllIMSIsWithCallFailureGivenTime() {
+	public final void testIncorrectReturnFindAll() {
 		UserStory12Query mockedQueryClass = Mockito.mock(UserStory12Query.class);
 		List<Cause> mockedCauseList = Mockito.mock(List.class);
 		List<CallFailure> mockedCallFailureList = Mockito.mock(List.class);
@@ -31,8 +27,11 @@ public class UserStory12QueryTest {
 	}
 
 	@Test
-	public final void testFindAll() {
-		
+	public final void testCorrectFindAll() {
+		UserStory12Query mockedQueryClass = Mockito.mock(UserStory12Query.class);
+		List<CallFailure> mockedCallFailureList = Mockito.mock(List.class);
+		Mockito.when(mockedQueryClass.findAll()).thenReturn(mockedCallFailureList);
+		assertSame(mockedQueryClass.findAll(), mockedCallFailureList);
 	}
 
 	@Test
