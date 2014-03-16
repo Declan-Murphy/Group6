@@ -1,4 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
  <head>
         <title>Dt340a - Group 6</title>
@@ -7,6 +6,18 @@
         <link rel="stylesheet" type="text/css" href="css/mystyle.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
+		<%
+			Cookie[] cookies = request.getCookies();
+			String userName = null;
+			for (Cookie cookie : cookies) {
+				if(cookie.getName().equals("user")) {
+					userName = cookie.getValue();
+				}
+			}
+			if (userName==null) {
+				response.getWriter().print("<script>;window.location.replace(\"index.html\");</script>");
+			}
+		%>
 </head>
 
 
@@ -26,9 +37,8 @@
                
                 
                 <h1>Call Investigation Assistant</h1> 
-                <h2>Group 6</h2> 
-                <h3>Network Management Engineer View</h3>          
-           	    <div class="wrapper">
+                <h2>Group 6</h2>
+                <div class="wrapper">
 					<a href="index.html"><button class='button centre'>Log out</button></a>
 				</div>           
             </div>

@@ -11,6 +11,7 @@ import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,6 +23,7 @@ public class LoginServlet extends HttpServlet {
 	PreparedStatement toDoStatement = null;
 	ResultSet loginResultSet = null;
 	ResultSet toDoResultSet = null;
+	int sessionMaxTimeInMinutes = 10;
 
 	public LoginServlet() {
 
@@ -49,7 +51,10 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("loggedUser", loginResultSet.getString(1));
 				session.setAttribute("loggedPass", loginResultSet.getString(2));
 				session.setAttribute("loggedType", loginResultSet.getString(3));
-
+                Cookie userCookie = new Cookie("user", loginResultSet.getString(1));
+                userCookie.setMaxAge(10);
+                response.addCookie(userCookie);
+                
 				// System.out.print("=-------------------------Query Result ---------"
 				// + loginResultSet.getString(1));
 				// System.out.print(loginResultSet.getString(2));
@@ -94,7 +99,7 @@ public class LoginServlet extends HttpServlet {
 						"Network Engineer")) {
 					ServletContext context = getServletContext();
 					RequestDispatcher dispatcher = context
-							.getRequestDispatcher("/netMgmtEngMenu.html");
+							.getRequestDispatcher("/netMgmtEngMenu.jsp");
 					dispatcher.forward(request, response);
 				}
 
