@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.dt340a.group6.sprint1.entity.User;
 
-import persistence.PersistenceUtil;
+import org.dt340a.group6.sprint1.persistence.PersistenceUtil;
 
 
 public class UserConfig {

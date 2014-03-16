@@ -1,3 +1,4 @@
+package org.dt340a.group6.sprint1.testingJUnit;
 import static org.junit.Assert.*;
 
 import java.io.PrintWriter;
@@ -22,7 +23,7 @@ public class Tests {
 	
 	@BeforeClass
 	public static void testSetup() throws SQLException {  
-		connection =ConnectionFactory.getInstance().getConnection();
+		connection = ConnectionFactory.getInstance().getConnection();
 		Persist = new UserConfig();
 		Persist.createUser("TestUser","TestPassword", "Support Engineer");	
 	}

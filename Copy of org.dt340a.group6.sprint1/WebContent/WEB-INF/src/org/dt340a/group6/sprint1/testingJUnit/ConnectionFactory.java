@@ -1,3 +1,4 @@
+package org.dt340a.group6.sprint1.testingJUnit;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
