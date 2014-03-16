@@ -392,22 +392,6 @@ public class PersistenceUtil implements Serializable {
 			return callFailures;
 	}
 
-	public static List<CallFailure> findCountOfOccurancesForGivenIMSI(
-			String imsi) {
-		EntityManager em = emf.createEntityManager();
-		@SuppressWarnings("unchecked")
-		List<CallFailure> us12List = (List<CallFailure>) em
-				.createNamedQuery(
-						"CallFailure.findCountOfOccurancesForGivenIMSI")
-				.setParameter("iMSI", imsi).getResultList();
-
-		em.close();
-		if (us12List.size() == 0)
-			return null;
-		else
-			return us12List;
-	}
-
 	public static List<CallFailure> findAll() {
 		EntityManager em = emf.createEntityManager();
 		@SuppressWarnings("unchecked")

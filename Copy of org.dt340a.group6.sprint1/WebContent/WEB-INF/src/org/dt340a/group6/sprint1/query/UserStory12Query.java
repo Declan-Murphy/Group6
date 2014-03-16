@@ -8,19 +8,12 @@ import org.dt340a.group6.sprint1.persistence.PersistenceUtil;
 
 public class UserStory12Query {
 	
-
-	
 	public List<CallFailure> findAll(){
 		return PersistenceUtil.findAll();
 	}
 	
 	public List<CallFailure> findAllBetween(Date startDateTime, Date endDateTime){
 		return PersistenceUtil.findAllBetween(startDateTime, endDateTime);
-	}
-	
-	
-	public List<CallFailure> findCountOfOccurancesForGivenIMSI(String imsi){
-		return PersistenceUtil.findCountOfOccurancesForGivenIMSI(imsi);
 	}
 
 }

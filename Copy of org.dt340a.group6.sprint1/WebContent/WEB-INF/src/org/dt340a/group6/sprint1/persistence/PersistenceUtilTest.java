@@ -149,10 +149,11 @@ public class PersistenceUtilTest {
 		
 	}
 
-	@Test
-	public final void testFindCountOfOccurancesForGivenIMSI() {
-		
-	}
+//	@Test
+//	public final void testFindCountOfOccurancesForGivenIMSI() {
+//		assertSame(PersistenceUtil.findCountOfOccurancesForGivenIMSI("191911000205790").get(0).getClass(), CallFailure.class);
+//		assertNotSame(PersistenceUtil.findAll().get(0).getClass(), Cause.class);
+//	}
 
 	@Test
 	public final void testFindAll() {
