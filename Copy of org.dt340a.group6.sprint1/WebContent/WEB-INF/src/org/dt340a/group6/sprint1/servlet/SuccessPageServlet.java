@@ -1,3 +1,4 @@
+package org.dt340a.group6.sprint1.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class SuccessPage extends HttpServlet {
+public class SuccessPageServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession(false);
 		String username = (String) session.getAttribute("loggedUser");

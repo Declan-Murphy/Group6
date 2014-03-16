@@ -1,5 +1,4 @@
-import org.dt340a.group6.sprint1.servlet.ConnectionFactory;
-
+package org.dt340a.group6.sprint1.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -17,14 +16,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class Login extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 	Connection connection = null;
 	PreparedStatement loginStatement = null;
 	PreparedStatement toDoStatement = null;
 	ResultSet loginResultSet = null;
 	ResultSet toDoResultSet = null;
 
-	public Login() {
+	public LoginServlet() {
 
 	}
 

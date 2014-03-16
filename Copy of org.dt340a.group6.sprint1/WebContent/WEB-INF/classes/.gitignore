@@ -1,10 +1,4 @@
-/ConnectionFactory.class
-/Login.class
-/Register.class
-/SuccessPage.class
-/Tests.class
-/FileReader.class
-/*.class
-=======
+/META-INF
+/entity
 /org
 /persistence
