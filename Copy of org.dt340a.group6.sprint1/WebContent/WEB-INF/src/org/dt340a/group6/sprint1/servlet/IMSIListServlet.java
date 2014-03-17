@@ -108,14 +108,18 @@ public class IMSIListServlet extends HttpServlet {
 		out.println("                </div> ");
 		out.println("                <h1>Call Investigation Assistant</h1>");
 		out.println("                <h2>Group 6</h2>");
-		out.println("                <h3>Support Engineer View</h3>");
+		out.println("                <h3>Support Engineer</h3>");
+        out.println("                <div class='wrapper'>");
+        out.println("                    <form class='alignleft' method='GET' action='logout'><input class='button' type='submit' value='Logout'/></form>  ");              
+        out.println("                    <a href='supEngMenu.html'><button class='button alignright'>Home Page</button></a>");
+        out.println("                </div>");
 		out.println("            </div>");
-		out.println("            <div id='inner-container' >  ");
-		out.println("<p>List all IMSIs that have failures between these times.</p>");
+		out.println("            <div class='wrapper' id='inner-container' >  ");
+		out.println("<h3>List all IMSIs that have failures between these times.</h3>");
 		out.println("		<form method=GET action='ListIMSIs'>			"
-				+ "From (date and time): <input type='datetime-local'			"
-				+ "	name='from' value='2013-01-01T00:00'> To (date and time): <input		"
-				+ "		type='datetime-local' name='to' value='2014-01-01T00:00'> <input type='submit'>	"
+				+ "<strong>From (date and time): </strong><input class='submissionfield' type='datetime-local'			"
+				+ "	name='from' value='2013-01-01T00:00'> <strong>To (date and time):</strong> <input		"
+				+ "		class='submissionfield' type='datetime-local' name='to' value='2014-01-01T00:00'> <input type='submit' class='button' >	"
 				+ "	</form>");
 		out.println("            </div>");
 		out.println("            <div id='inner-container'>");
