@@ -60,7 +60,7 @@ public class IMSIListServlet extends HttpServlet {
 		// return;
 		// }
 
-		List<CallFailure> callFailures = PersistenceUtil.findAllBetween(from,to);
+		List<CallFailure> callFailures = PersistenceUtil.findAllCallFailuresBetween(from,to);
 
 		if (callFailures.isEmpty()) {
 			noResultsFound(out);

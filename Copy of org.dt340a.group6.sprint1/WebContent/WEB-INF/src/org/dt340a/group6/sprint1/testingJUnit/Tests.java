@@ -28,12 +28,6 @@ public class Tests {
 		Persist.createUser("TestUser","TestPassword", "Support Engineer");	
 	}
 	
-//	@AfterClass
-//	public static void testCleanup() {
-//		Persist.removeUser("TestUser");	
-//		Persist.removeListItem("TestUser","TestPassword");		
-//	}
-	
 	@Test
 	public void readUser() {		
 		
@@ -49,23 +43,6 @@ public class Tests {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}		
-	}
-	@Test
-	public void readList() {			
-		String toDoQueryString = "SELECT username, password,  itemContent FROM user, listItem WHERE username = ? and password=? and user.id = listItem.user_id";
-		
-		try {
-			toDoStatement = connection.prepareStatement(toDoQueryString);
-			toDoStatement.setString(1,"TestUser");
-			toDoStatement.setString(2,"TestPassword");
-			toDoResultSet = toDoStatement.executeQuery();
-			
-			toDoResultSet.next();
-			
-			assertEquals("List content Must be TestListItem", "TestListItem", toDoResultSet.getString(3));
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
 	}
 
 }
