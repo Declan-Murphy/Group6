@@ -18,22 +18,20 @@
 				
 				<h1>Call Investigation Assistant</h1> 
 				<h2>Group 6</h2> 
-				<h3>Customer Service Representative View</h3>
-				<h4>User Story 6</h4>
-				<h4>As a customer service rep, I want to see, for a given IMSI, 
-				<br>all the unique cause codes associated with its call failures.</h4>
+				<h3>Customer Service Representative</h3>
+				<div class='wrapper'>
+					<form class='alignleft' method='GET' action='logout'><input class='button' type='submit' value='Logout'/></form>				
+					<a href='custSerRepMenu.html'><button class='button alignright'>Home Page</button></a>
+				</div> 
             </div>
             
-			<div id='inner-container' >
-			
+<div class='wrapper' id='inner-container' >  
 				<form method=GET action='imsiQuery'>
 					<input type='hidden' name='userStoryNumber' value='us6'>
-					<input class='submissionfield' type='text' name='imsi' placeholder='Please Enter an IMSI number Here' required='required'>
-					<input type='submit'>
-					<input Type='button' VALUE='Back' onClick='history.go(-1);return true;'>
+					<strong>Enter IMSI: </strong><input class='submissionfield' type='text' name='imsi' placeholder='Please Enter an IMSI number Here' required='required'>
+					<input type='submit' class='button'>
 				</form>
-				
-			</div>          
+			</div>         
 		</div>
 		<div id='eric-multi'>
 			<img src='images/ebottomgrad.jpg' >

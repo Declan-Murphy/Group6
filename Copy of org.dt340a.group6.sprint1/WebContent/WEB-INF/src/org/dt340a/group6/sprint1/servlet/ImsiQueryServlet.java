@@ -69,6 +69,7 @@ public class ImsiQueryServlet extends HttpServlet{
 	 * Generate HTML for user story 6 results
 	 * @param out PrintWriter
 	 * @param callFailures List CallFailure
+	 * 
 	 */
 	private void userStory6QueryResult(PrintWriter out, List<CallFailure> callFailures) {
 		ArrayList<CallFailure> alreadySeenCallFailureCodes = findSingleInstanceOfEachCauseCode(callFailures);
@@ -229,15 +230,26 @@ public class ImsiQueryServlet extends HttpServlet{
 		genericHeader(out);
 		startBody(out);
 		if(currentStory.equals("us4")){
-			out.println("                <h4>User Story 4</h4>");
-			out.println("                <h4> As Customer Service Rep. I want to display, for a given affected IMSI, <br>the Event ID and Cause Code for any / all failures affecting that IMSI</h4>");
-		}
+			out.println("            <div class='wrapper' id='inner-container' >  ");
+			out.println("            <form method=GET action='imsiQuery'>");
+			out.println("			<input type='hidden' name='userStoryNumber' value='us4'>");
+			out.println("			<strong>Enter IMSI: </strong><input class='submissionfield' type='text' name='imsi' placeholder='Please Enter an IMSI number Here' required='required'>");
+			out.println("			<input type='submit' class='button'>");
+			out.println("            </form>");
+			out.println("            </div>");
+			out.println("            <div id='inner-container'>");
+			out.println("                <table id='customers'>");}
 		else if(currentStory.equals("us6")){
-			out.println("                <h4>User Story 6</h4>");
-			out.println("                <h4>As a customer service rep, I want to see, for a given IMSI, <br>all the unique cause codes associated with its call failures.</h4>");
-		}
-		out.println("            </div>");
-		startTable(out);
+			out.println("            <div class='wrapper' id='inner-container' >  ");
+			out.println("            <form method=GET action='imsiQuery'>");
+			out.println("			<input type='hidden' name='userStoryNumber' value='us6'>");
+			out.println("			<strong>Enter IMSI: </strong><input class='submissionfield' type='text' name='imsi' placeholder='Please Enter an IMSI number Here' required='required'>");
+			out.println("			<input type='submit' class='button'>");
+			out.println("            </form>");
+			out.println("            </div>");
+			out.println("            <div id='inner-container'>");
+			out.println("                <table id='customers'>");}
+
 	}
 	
 	/**
@@ -270,23 +282,14 @@ public class ImsiQueryServlet extends HttpServlet{
 		out.println("                </div> ");
 		out.println("                <h1>Call Investigation Assistant</h1>");
 		out.println("                <h2>Group 6</h2>");
-		out.println("                <h3>Customer Service Representative View</h3>");
-	}
-	
-	/**
-	 * Create the back button & container and start the results table
-	 * @param out PrintWriter
-	 */
-	private void startTable(PrintWriter out) {
-		out.println("            <div id='inner-container' >  ");
-		out.println("            <form method=GET action='imsiQuery'>");
-		out.println("               <input Type='button' VALUE='Back' onClick='history.go(-2);return true;'>");
-		out.println("            </form>");
-		out.println("            </div>");
-		out.println("            <div id='inner-container'>");
-		out.println("                <table id='customers'>");
-	}
-	
+		out.println("                <h3>Customer Service Representative</h3>");
+        out.println("                <div class='wrapper'>");
+        out.println("                    <form class='alignleft' method='GET' action='logout'><input class='button' type='submit' value='Logout'/></form>  ");              
+        out.println("                    <a href='custSerRepMenu.html'><button class='button alignright'>Home Page</button></a>");
+        out.println("                </div>");
+        out.println("                </div>");
+        
+	}	
 	/**
 	 * Finishes off the table for the results, prints the bottom grad, closes the html tags
 	 * @param out PrintWriter

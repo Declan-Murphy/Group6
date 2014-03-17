@@ -132,10 +132,11 @@ public class Us5servlet extends HttpServlet {
 		out.println("                </div> ");
 		out.println("                <h1>Call Investigation Assistant</h1>");
 		out.println("                <h2>Group 6</h2> ");
-		out.println("                <h3>Customer Service Representative View</h3>");
-		out.println("                <h4>User Story 5</h4>");
-		out.println("                <h4> 5)	As a Customer Service Rep, I want to count, for a given IMSI, ");
-		out.println("                <br>the number of failures they have had during a given time period</h4>");
+		out.println("                <h3>Customer Service Representative</h3>");
+        out.println("                <div class='wrapper'>");
+        out.println("                    <form class='alignleft' method='GET' action='logout'><input class='button' type='submit' value='Logout'/></form>  ");              
+        out.println("                    <a href='custSerRepMenu.html'><button class='button alignright'>Home Page</button></a>");
+        out.println("                </div>");
 		out.println("            </div>");
 
 	}
@@ -168,26 +169,27 @@ public class Us5servlet extends HttpServlet {
 
 	private void test(PrintWriter out) {
 
-		out.println("<div id='inner-container'>");
+		out.println("<div class='wrapper' id='inner-container'>");
 		out.println("<form method=GET action='Us5servlet'>");
-		out.println("<h4>Total Call Failures Over Time </h4>");
+		out.println("<h3>Total Call Failures Over Time </h3>");
 
-		out.println("<input class='submissionfield' type='text' name='username' value="
+		out.println("<strong>Enter IMSI: </strong><input class='submissionfield' type='text' name='username' value="
 				+ imsi
 				+ " placeholder='Please Enter an IMSI number Here' required='required'>");
 		out.println("<br/>");
 		out.println("<br/>");
-		out.println("<label for='startDate'>Start Date</label>");
-		out.println("<input type='datetime-local' name='startDate' value="
+		out.println("<strong><label for='startDate'>Start Date: </label></strong>");
+		out.println("<input class='submissionfield' type='datetime-local' name='startDate' value="
 				+ startDateString
 				+ " placeholder='Please Enter a start date Here' id='date' />");
-
-		out.println("<label for='endDate'>End Date</label>");
-		out.println("<input type='datetime-local' name='endDate' value="
+		out.println("<br/>");
+		out.println("<br/>");
+		out.println("<strong><label for='endDate'>End Date: </label></strong>");
+		out.println("<input class='submissionfield' type='datetime-local' name='endDate' value="
 				+ endDateString
 				+ " placeholder='Please Enter end date Here' id='date' /> ");
-		out.println("<input type='submit'>");
-		out.println("<input Type='button' VALUE='Back' onClick='history.go(-1);return true;'>");
+		out.println("<br/>");
+		out.println("<input type='submit' class='button'>");
 		out.println("</form>");
 		out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>");
 		out.println("<script src='js/jquery-ui.js'></script>");

@@ -44,9 +44,12 @@ public class RegisterServlet extends HttpServlet {
 			
 			UserConfig Persist = new UserConfig();
 			Persist.createUser(userName, userPass, userType);
+	        out.println("<div class='wrapper' id='inner-container'>");			
 			out.println("<p>User " + userName + " has been created</p>");
-			out.println("<button class='button center'><a href='index.html'>Go to login page</a></button>");
+	        out.println("</div>");
+	        formStuff(out);
 			endHTMLPrintout(out);
+			
 		}
 		
 		
@@ -119,8 +122,10 @@ public class RegisterServlet extends HttpServlet {
 	}
 	
 	private void formStuff(PrintWriter out){
-	       out.println("            <div id='inner-container'>");
-
+	    out.println("            <div class='wrapper' id='inner-container'>");
+	    
+		out.println("                <form name=login method='get' action='register' onSubmit='return checkform(this)'>");
+		out.println("                <center>");		
 		out.println("                <table border=1>");
 		out.println("                <tr>");
 		out.println("                	<td>Enter Your Name :</td>");
@@ -157,8 +162,9 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	private void endHTMLPrintout(PrintWriter out) {
 		out.println("                </table>");
+		out.println("            </center>");
+		out.println("            </form>");
 		out.println("            </div>");
-		out.println("         </div>");
 		out.println("         <div id='eric-multi'>");
 		out.println("              <img src='images/ebottomgrad.jpg' >");
 		out.println("         </div>");
