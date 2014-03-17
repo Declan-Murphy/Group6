@@ -27,7 +27,7 @@ public class ModelEventCauseQueryServlet extends HttpServlet{
 		model = req.getParameter("username");
 		
 		try{
-		tac = PersistenceUtil.findEquipmentByModel(model).get(0).gettAC();
+			tac = PersistenceUtil.findEquipmentByModel(model).get(0).gettAC();
 		}catch(Exception e){
 			
 			tac = 0;

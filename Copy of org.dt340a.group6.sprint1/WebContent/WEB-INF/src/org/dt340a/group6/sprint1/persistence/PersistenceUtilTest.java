@@ -5,8 +5,11 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertSame;
 
+import java.util.List;
+
 import org.dt340a.group6.sprint1.entity.CallFailure;
 import org.dt340a.group6.sprint1.entity.Cause;
+import org.dt340a.group6.sprint1.entity.Equipment;
 import org.dt340a.group6.sprint1.entity.User;
 import org.junit.Test;
 
@@ -119,7 +122,10 @@ public class PersistenceUtilTest {
 
 	@Test
 	public final void testFindEquipmentByModel() {
-		
+		assertEquals(PersistenceUtil.findEquipmentByModel("Wireless CPU Q2687").get(0).gettAC(), 101700);
+		assertNotEquals(PersistenceUtil.findEquipmentByModel("Wireless CPU Q2687").get(0).gettAC(), "tac");
+		assertEquals(PersistenceUtil.findEquipmentByModel("Wireless CPU Q2687").get(0).getClass(), Equipment.class);
+		assertNotEquals(PersistenceUtil.findEquipmentByModel("Wireless CPU Q2687").get(0).getClass(), Cause.class);
 	}
 
 	@Test
@@ -137,13 +143,13 @@ public class PersistenceUtilTest {
 		
 	}
 
-//	@Test
-//	public final void testGroupCallFailureByTAC() {
-//		assertSame(PersistenceUtil.groupCallFailureByTAC(101700).get(0).getClass(), CallFailure.class);
-//		assertNotSame(PersistenceUtil.groupCallFailureByTAC(101700).get(0).getClass(), Equipment.class);
-//		assertSame(PersistenceUtil.groupCallFailureByTAC(101700).getClass(), List.class);
-//		assertNotSame(PersistenceUtil.groupCallFailureByTAC(101700).getClass(), CallFailure.class);
-//	}
+	@Test
+	public final void testGroupCallFailureByTAC() {
+		//i don't know how to test this -can't find a TAC it works for...
+//		assertEquals(PersistenceUtil.groupCallFailureByTAC(101700).getClass(), List.class);
+//		assertEquals(PersistenceUtil.groupCallFailureByTAC(100700), null);
+		
+	}
 
 	@Test
 	public final void testFindAll() {
@@ -163,6 +169,8 @@ public class PersistenceUtilTest {
 		assertNotSame(PersistenceUtil.findUserByUsername("admin").getClass(), Cause.class);
 		assertEquals(PersistenceUtil.findUserByUsername("admin").getUsername(), "admin");
 		assertNotEquals(PersistenceUtil.findUserByUsername("admin").getUsername(), "admin!");
+		assertEquals(PersistenceUtil.findUserByUsername("PandaBear"), null);
+		assertNotEquals(PersistenceUtil.findUserByUsername("PandaBear"), "null");
 	}
 
 }
