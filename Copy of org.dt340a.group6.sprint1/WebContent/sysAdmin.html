@@ -6,9 +6,46 @@
         <link rel="icon" type="image/ico" href="http://www.ericsson.com/favicon.ico"/>
         <link rel="stylesheet" type="text/css" href="css/mystyle.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script>
+        
+        <script type="text/javascript">
+                var _validFileExtensions = [".xls",];
+                
+                function Validate(oForm) {
+                    var arrInputs = oForm.getElementsByTagName("input");
+                    for (var i = 0; i < arrInputs.length; i++) {
+                        var oInput = arrInputs[i];
+                        if (oInput.type == "file") {
+                            var sFileName = oInput.value;
+                            if (sFileName.length > 0) {
+                                var blnValid = false;
+                                for (var j = 0; j < _validFileExtensions.length; j++) {
+                                    var sCurExtension = _validFileExtensions[j];
+                                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                                        blnValid = true;
+                                        goodToGo = true;
+                                        showLoadingImage()
+                                        break;
+                                        
+                                        
+                                        
+                                    }
+                                }
+                                
+                                if (!blnValid) {
+                                    alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                    
+                    return true;
+                }
+                </script>
+        
+        
+           <script>
         	var goodToGo = false;
-        	function requiredSelected(){goodToGo = true;}
         	function showLoadingImage(){if(goodToGo==true){document.getElementById('loadingImage').style.visibility='visible';}}
         </script>
 	</head>
@@ -31,7 +68,7 @@
             </div>
             
             <div id="upload-container" >     
-                <form action="fileUpload" enctype="multipart/form-data" method="post">
+                <form action="fileUpload" enctype="multipart/form-data" method="post" onsubmit="return Validate(this);">
                     <input type="file" name="uploadFile" required="required" onchange="requiredSelected()" />
                     <input class='button' type="submit" value="Upload File" onclick="showLoadingImage()"/> 
                 </form>
