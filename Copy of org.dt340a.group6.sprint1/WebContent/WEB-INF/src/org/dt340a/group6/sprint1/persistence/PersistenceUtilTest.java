@@ -1,7 +1,7 @@
 package org.dt340a.group6.sprint1.persistence;
 
 import static org.junit.Assert.assertEquals;
-//import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertSame;
 
@@ -23,52 +23,52 @@ public class PersistenceUtilTest {
 
 	@Test//TODO
 	public final void testPersistAllString() {
-		
+
 	}
 
 	@Test//TODO
 	public final void testPersistFailureClasses() {
-		
+
 	}
 
 	@Test//TODO
 	public final void testPersistEventCauses() {
-		
+
 	}
 
 	@Test//TODO
 	public final void testPersistCountryOperators() {
-		
+
 	}
 
 	@Test//TODO
 	public final void testPersistEquipment() {
-		
+
 	}
 
 	@Test//TODO
 	public final void testPersistCallFailures() {
-		
+
 	}
 
 	@Test//TODO
 	public final void testPersistAllListOfObject() {
-		
+
 	}
 
 	@Test//TODO
 	public final void testPersist() {
-		
+
 	}
 
 	@Test//TODO
 	public final void testRemove() {
-		
+
 	}
 
 	@Test//TODO
 	public final void testMerge() {
-		
+
 	}
 
 	@Test//TODO
@@ -79,11 +79,10 @@ public class PersistenceUtilTest {
 	@Test
 	public final void testFindCauseCode_EventIDByIMSI() {
 		assertEquals(PersistenceUtil.findCauseCode_EventIDByIMSI("191911000516761").get(0).getClass(), CallFailure.class);
-		assertNotSame(PersistenceUtil.findCauseCode_EventIDByIMSI("191911000516761").get(0).getClass(), Cause.class);
+		assertNotEquals(PersistenceUtil.findCauseCode_EventIDByIMSI("191911000516761").get(0).getClass(), Cause.class);
 		assertEquals(PersistenceUtil.findCauseCode_EventIDByIMSI("aaaa"), null);
-		assertNotSame(PersistenceUtil.findCauseCode_EventIDByIMSI("aaaa"), CallFailure.class);
+		assertNotEquals(PersistenceUtil.findCauseCode_EventIDByIMSI("aaaa"), CallFailure.class);
 	}
-
 
 	@Test
 	public final void testFindCallByIMSIBetweenDate() {
@@ -144,9 +143,9 @@ public class PersistenceUtilTest {
 		//can't find a TAC it works for...
 //		assertEquals(PersistenceUtil.groupCallFailureByTAC(101700).getClass(), List.class);
 //		assertEquals(PersistenceUtil.groupCallFailureByTAC(100700), null);
-		
+
 	}
-	
+
 	@Test 
 	public final void testFindAllCallFailuresBetween(){
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy'T'hh:mm");
@@ -181,9 +180,9 @@ public class PersistenceUtilTest {
 		assertSame(PersistenceUtil.findUserByUsername("admin").getClass(), User.class);
 		assertNotSame(PersistenceUtil.findUserByUsername("admin").getClass(), Cause.class);
 		assertEquals(PersistenceUtil.findUserByUsername("admin").getUsername(), "admin");
-		assertNotSame(PersistenceUtil.findUserByUsername("admin").getUsername(), "admin!");
 		assertNotEquals(PersistenceUtil.findUserByUsername("admin").getUsername(), "admin!");
 		assertEquals(PersistenceUtil.findUserByUsername("PandaBear"), null);
 		assertNotEquals(PersistenceUtil.findUserByUsername("PandaBear"), "null");
 	}
+
 }
