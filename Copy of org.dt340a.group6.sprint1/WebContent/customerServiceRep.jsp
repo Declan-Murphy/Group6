@@ -1,4 +1,4 @@
-<%@ page language='java' import='org.dt340a.group6.sprint1.persistence.PersistenceUtil'%>
+<%@ page language='java' import='org.dt340a.group6.sprint1.persistence.test.PersistenceUtil'%>
 <html>
     <head>
         <title>Dt340a - Group 6</title>

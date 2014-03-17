@@ -1,4 +1,4 @@
-package org.dt340a.group6.sprint1.fileImport;
+package org.dt340a.group6.sprint1.fileImport.test;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
@@ -7,6 +7,11 @@ import org.junit.Test;
 import org.dt340a.group6.sprint1.persistence.PersistenceUtil;
 import org.dt340a.group6.sprint1.entity.AllMasterTableRows;
 import org.dt340a.group6.sprint1.entity.CallFailure;
+import org.dt340a.group6.sprint1.fileImport.CallFailureReader;
+import org.dt340a.group6.sprint1.fileImport.CauseReader;
+import org.dt340a.group6.sprint1.fileImport.CountryOperatorReader;
+import org.dt340a.group6.sprint1.fileImport.EquipmentReader;
+import org.dt340a.group6.sprint1.fileImport.FailureClassReader;
 
 public class CallFailureReaderTest {
 	private FailureClassReader failureClassReader;

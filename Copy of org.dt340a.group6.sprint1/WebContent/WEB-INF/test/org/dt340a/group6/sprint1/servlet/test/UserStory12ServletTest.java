@@ -1,4 +1,4 @@
-package org.dt340a.group6.sprint1.servlet;
+package org.dt340a.group6.sprint1.servlet.test;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;

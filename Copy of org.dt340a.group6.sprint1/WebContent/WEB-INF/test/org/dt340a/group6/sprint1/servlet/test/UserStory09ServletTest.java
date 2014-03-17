@@ -1,10 +1,12 @@
-package org.dt340a.group6.sprint1.servlet;
+package org.dt340a.group6.sprint1.servlet.test;
 
 import com.kizna.servletunit.*;
 import javax.servlet.ServletException;
 import java.io.IOException;
 
 import junit.framework.*;
+
+import org.dt340a.group6.sprint1.servlet.UserStory09Servlet;
 import org.junit.Test;
 
 public class UserStory09ServletTest extends TestCase {

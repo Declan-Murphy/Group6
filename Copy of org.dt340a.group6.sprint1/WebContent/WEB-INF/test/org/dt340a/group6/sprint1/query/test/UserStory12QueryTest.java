@@ -1,4 +1,4 @@
-package org.dt340a.group6.sprint1.query;
+package org.dt340a.group6.sprint1.query.test;
 
 import static org.junit.Assert.*;
 
@@ -14,7 +14,8 @@ import org.junit.Test;
 import org.mockito.Mockito;
 import org.dt340a.group6.sprint1.entity.CallFailure;
 import org.dt340a.group6.sprint1.entity.Cause;
-import org.dt340a.group6.sprint1.query.*;
+import org.dt340a.group6.sprint1.query.UserStory12Query;
+import org.dt340a.group6.sprint1.query.test.*;
 
 public class UserStory12QueryTest {
 	

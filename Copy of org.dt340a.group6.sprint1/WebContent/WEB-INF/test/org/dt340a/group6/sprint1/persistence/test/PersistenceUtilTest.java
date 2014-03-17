@@ -1,4 +1,4 @@
-package org.dt340a.group6.sprint1.persistence;
+package org.dt340a.group6.sprint1.persistence.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -17,6 +17,7 @@ import org.dt340a.group6.sprint1.entity.CallFailure;
 import org.dt340a.group6.sprint1.entity.Cause;
 import org.dt340a.group6.sprint1.entity.Equipment;
 import org.dt340a.group6.sprint1.entity.User;
+import org.dt340a.group6.sprint1.persistence.PersistenceUtil;
 import org.junit.Test;
 
 public class PersistenceUtilTest {

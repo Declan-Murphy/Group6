@@ -1,7 +1,8 @@
-package org.dt340a.group6.sprint1.fileImport;
+package org.dt340a.group6.sprint1.fileImport.test;
 
 import static org.junit.Assert.assertEquals;
 import org.apache.poi.ss.usermodel.Cell;
+import org.dt340a.group6.sprint1.fileImport.FileReader;
 import org.junit.Test;
 
 public class FileReaderTest {

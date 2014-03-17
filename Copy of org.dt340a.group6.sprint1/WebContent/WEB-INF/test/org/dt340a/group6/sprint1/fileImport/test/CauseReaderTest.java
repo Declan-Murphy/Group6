@@ -1,4 +1,4 @@
-package org.dt340a.group6.sprint1.fileImport;
+package org.dt340a.group6.sprint1.fileImport.test;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
@@ -6,6 +6,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.dt340a.group6.sprint1.persistence.PersistenceUtil;
 import org.dt340a.group6.sprint1.entity.Cause;
+import org.dt340a.group6.sprint1.fileImport.CauseReader;
 
 public class CauseReaderTest {
 	private CauseReader causeReader;

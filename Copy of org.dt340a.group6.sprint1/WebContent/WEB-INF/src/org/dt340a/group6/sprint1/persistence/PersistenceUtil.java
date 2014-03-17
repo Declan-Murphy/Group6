@@ -9,7 +9,12 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import org.dt340a.group6.sprint1.entity.*;
-import org.dt340a.group6.sprint1.fileImport.*;
+import org.dt340a.group6.sprint1.fileImport.CallFailureReader;
+import org.dt340a.group6.sprint1.fileImport.CauseReader;
+import org.dt340a.group6.sprint1.fileImport.CountryOperatorReader;
+import org.dt340a.group6.sprint1.fileImport.EquipmentReader;
+import org.dt340a.group6.sprint1.fileImport.FailureClassReader;
+import org.dt340a.group6.sprint1.fileImport.test.*;
 
 public class PersistenceUtil implements Serializable {
 

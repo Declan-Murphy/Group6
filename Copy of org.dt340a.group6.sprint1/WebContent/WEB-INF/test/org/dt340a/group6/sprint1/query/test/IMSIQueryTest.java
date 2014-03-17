@@ -1,4 +1,4 @@
-package org.dt340a.group6.sprint1.query;
+package org.dt340a.group6.sprint1.query.test;
 
 import static org.junit.Assert.*;
 
@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import org.dt340a.group6.sprint1.entity.CallFailure;
 import org.dt340a.group6.sprint1.entity.Equipment;
+import org.dt340a.group6.sprint1.query.IMSIQuery;
 
 public class IMSIQueryTest {
 	

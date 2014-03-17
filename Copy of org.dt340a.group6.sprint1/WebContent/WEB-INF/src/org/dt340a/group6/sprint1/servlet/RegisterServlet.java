@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.dt340a.group6.sprint1.entity.User;
-import org.dt340a.group6.sprint1.persistence.*;
+import org.dt340a.group6.sprint1.persistence.PersistenceUtil;
+import org.dt340a.group6.sprint1.persistence.UserConfig;
+import org.dt340a.group6.sprint1.persistence.test.*;
 
 
 public class RegisterServlet extends HttpServlet {

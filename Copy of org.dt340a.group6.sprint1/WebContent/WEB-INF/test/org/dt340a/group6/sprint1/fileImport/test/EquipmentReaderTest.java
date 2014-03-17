@@ -1,4 +1,4 @@
-package org.dt340a.group6.sprint1.fileImport;
+package org.dt340a.group6.sprint1.fileImport.test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import org.dt340a.group6.sprint1.persistence.PersistenceUtil;
 import org.dt340a.group6.sprint1.entity.Equipment;
+import org.dt340a.group6.sprint1.fileImport.EquipmentReader;
 
 public class EquipmentReaderTest {
 	private EquipmentReader equipmentReader;

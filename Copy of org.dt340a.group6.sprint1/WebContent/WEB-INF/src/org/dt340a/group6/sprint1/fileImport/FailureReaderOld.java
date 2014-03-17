@@ -1,4 +1,4 @@
-//package org.dt340a.group6.sprint1.fileImport;
+//package org.dt340a.group6.sprint1.fileImport.test;
 //
 //import java.util.ArrayList;
 //import java.util.Date;

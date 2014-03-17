@@ -100,8 +100,7 @@ public class IMSIListServletTest {
 			// .readFileToString(new File("testfile.txt"), "UTF-8").contains(
 			// firstIMSI));
 			System.out.println("here");
-			System.out.println(FileUtils.readFileToString(new File(
-					"testfile.txt"), "UTF-8"));
+			System.out.println(FileUtils.readFileToString(new File("testfile.txt"), "UTF-8"));
 		} catch (IOException e2) {
 			e2.printStackTrace();
 		}
@@ -142,8 +141,7 @@ public class IMSIListServletTest {
 
 	public void createList() {
 		Cause cause = new Cause.Builder().description("failure reason").build();
-		CallFailure failure = new CallFailure.Builder().dateTime(middle)
-				.cause(cause).iMSI("1234").build();
+		CallFailure failure = new CallFailure.Builder().dateTime(middle).cause(cause).iMSI("1234").build();
 		callFailures.add(failure);
 	}
 

@@ -1,4 +1,4 @@
-package org.dt340a.group6.sprint1.validation;
+package org.dt340a.group6.sprint1.validation.test;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;

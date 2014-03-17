@@ -1,8 +1,9 @@
-package org.dt340a.group6.sprint1.validation;
+package org.dt340a.group6.sprint1.validation.test;
 
 import static org.junit.Assert.*;
 
 import org.dt340a.group6.sprint1.fileImport.FileReader;
+import org.dt340a.group6.sprint1.validation.ValidateExcelFile;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

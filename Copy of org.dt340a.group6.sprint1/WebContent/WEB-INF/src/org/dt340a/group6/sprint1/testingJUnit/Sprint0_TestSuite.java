@@ -3,9 +3,10 @@ package org.dt340a.group6.sprint1.testingJUnit;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
-import org.dt340a.group6.sprint1.fileImport.*;
-import org.dt340a.group6.sprint1.query.*;
+import org.dt340a.group6.sprint1.fileImport.test.*;
+import org.dt340a.group6.sprint1.query.test.*;
 import org.dt340a.group6.sprint1.validation.*;
+import org.dt340a.group6.sprint1.validation.test.PrimitiveCheckTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({ CallFailureReaderTest.class, CauseReaderTest.class,
