@@ -144,10 +144,10 @@ public class UserStory12Servlet extends HttpServlet {
 	 * @param out
 	 */
 	private void queryTableHeadersUS12(PrintWriter out) {
-		out.println("                    <tr class='alt'>");
-		out.println("                      <td> </td>");
-        out.println("                      <td> </td>");
-		out.println("                    </tr>");
+//		out.println("                    <tr class='alt'>");
+//		out.println("                      <td> </td>");
+//        out.println("                      <td> </td>");
+//		out.println("                    </tr>");
 		out.println("                    <tr>");
         out.println("                      <th>IMSI</th>");
         out.println("                      <th>Number of Failures</th>");
@@ -206,7 +206,11 @@ public class UserStory12Servlet extends HttpServlet {
 		out.println("                </div> ");
 		out.println("                <h1>Call Investigation Assistant</h1>");
 		out.println("                <h2>Group 6</h2>");
-		out.println("                <h3>Customer Service Representative View</h3>");
+		out.println("                <h3>Network Management Engineer</h3>");             
+        out.println("                <div class='wrapper'>");
+        out.println("                   <form class='alignleft' method='GET' action='logout'><input class='button' type='submit' value='Logout'/></form>");                
+        out.println("                   <a href='netMgmtEngMenu.html'><button class='button alignright'>Home Page</button></a>");
+        out.println("                </div>");
 	}
 	
 	/**
@@ -214,11 +218,15 @@ public class UserStory12Servlet extends HttpServlet {
 	 * @param out PrintWriter
 	 */
 	private void startTable(PrintWriter out) {
-		out.println("            <div id='inner-container' >  ");
-		out.println("            <form method=GET action='imsiQuery'>");
-		out.println("               <input Type='button' VALUE='Back' onClick='history.go(-2);return true;'>");
-		out.println("            </form>");
-		out.println("            </div>");
+        out.println("            <div class='wrapper' id='inner-container' >");
+        out.println("            <div><h3>Please select the date and time range to query for Top 10 IMSIs that had call failures:</h3></div>");           
+        out.println("            <form method=GET action='UserStory12Servlet'>");
+        out.println("            <input type='hidden' name='userStoryNumber' value='us12'>");
+        out.println("                    <strong>From (date and time):</strong> <input class='submissionfield' type='datetime-local' value='2013-01-01T00:00' name='startDateTime'>");
+        out.println("                   <strong>To (date and time):</strong> <input class='submissionfield' type='datetime-local' value='2014-01-01T00:00' name='endDateTime'>");
+        out.println("            <input class='button' type='submit'>");
+        out.println("            </form>");
+        out.println("            </div>");
 		out.println("            <div id='inner-container'>");
 		out.println("                <table id='customers'>");
 	}

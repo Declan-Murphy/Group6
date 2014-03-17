@@ -1,19 +1,18 @@
 package org.dt340a.group6.sprint1.servlet;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 public class LoginFailureServlet extends HttpServlet{
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
-		//
+
 		out.println("<html>");
 		out.println("    <head>");
 		out.println("       <title>Dt340a - Group 6</title>");
@@ -32,21 +31,18 @@ public class LoginFailureServlet extends HttpServlet{
 		out.println("                     <img alt='DIT' src='http://www.dit.ie/media/styleimages/dit_crest.gif' width='90px' height='90px'>  ");
 		out.println("                </div> ");
 		out.println("                <h1>Call Investigation Assistant</h1>");
-		out.println("                <h2>Group 6</h2>");
-		out.println("                <h3>Customer Service Representative View</h3>");
-		
+		out.println("                <h2>Group 6</h2>");		
 		out.println("            <div id='inner-container' >  ");
-		out.println("<center>");
-		out.println("<h3>Login fail<h3><br> ");
-		out.println(" <a href='index.html'><button class='button'>Try Again</button></a>");	
-		out.println("</center>");
+		out.println("             <center>");
+		out.println("                 <h3>Login fail<h3><br> ");
+		out.println("                 <a href='index.html'><button class='button'>Try Again</button></a>");	
+		out.println("             </center>");
 		out.println("         </div>");
 		out.println("         <div id='eric-multi'>");
 		out.println("              <img src='images/ebottomgrad.jpg' >");
 		out.println("         </div>");
 		out.println("    </body>");
 		out.println("</html>");
-		//
 
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

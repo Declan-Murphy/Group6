@@ -1,12 +1,11 @@
 package org.dt340a.group6.sprint1.servlet;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -38,8 +37,6 @@ public class LoginServlet extends HttpServlet {
 
 		try {
 			String loginQueryString = "SELECT username, password, userType FROM User WHERE username = ? and password=?";
-			// String loginQueryString =
-			// "select distinct e.model, c.cause_eventId, c.cause_causeCode, count(*) from equipment e, callfailure c where c.equipment_tac=e.tAC and e.model='vea3' group by c.cause_eventId, c.cause_causeCode;";
 			connection = ConnectionFactory.getInstance().getConnection();
 			loginStatement = connection.prepareStatement(loginQueryString);
 			loginStatement.setString(1, userName);
@@ -47,68 +44,46 @@ public class LoginServlet extends HttpServlet {
 			loginResultSet = loginStatement.executeQuery();
 
 			if (loginResultSet.next()) {
-				HttpSession session = request.getSession(true);
+                Cookie userCookie = new Cookie("user", loginResultSet.getString(1));
+                userCookie.setMaxAge(sessionMaxTimeInMinutes*60);
+                response.addCookie(userCookie);
+                HttpSession session = request.getSession(true);
 				session.setAttribute("loggedUser", loginResultSet.getString(1));
 				session.setAttribute("loggedPass", loginResultSet.getString(2));
 				session.setAttribute("loggedType", loginResultSet.getString(3));
-                Cookie userCookie = new Cookie("user", loginResultSet.getString(1));
-                userCookie.setMaxAge(10);
-                response.addCookie(userCookie);
+
                 
-				// System.out.print("=-------------------------Query Result ---------"
-				// + loginResultSet.getString(1));
-				// System.out.print(loginResultSet.getString(2));
-				// System.out.print(loginResultSet.getString(3));
-				// System.out.print(loginResultSet.getString(4));
-
-				// Now run a query to get their todo list
-				// String toDoQueryString =
-				// "SELECT username, password,  itemContent FROM user, listItem WHERE username = ? and password=? and user.id = listItem.user_id";
-				// toDoStatement = connection.prepareStatement(toDoQueryString);
-				// toDoStatement.setString(1,userName);
-				// toDoStatement.setString(2,userPass);
-				// toDoResultSet = toDoStatement.executeQuery();
-				// List<String> toDoList = new ArrayList<String>();
-				// This will add all list items for current user
-				// while(toDoResultSet.next()){
-				// toDoList.add( toDoResultSet.getString(3) );
-				// }
-				// session.setAttribute("loggedToDoList", toDoList);
-
-				// ServletContext context=getServletContext();
-				// RequestDispatcher
-				// dispatcher=context.getRequestDispatcher("/success");
-				// dispatcher.forward(request, response);
 				if (loginResultSet.getString(3).equals("Support Engineer")) {
-					ServletContext context = getServletContext();
-					RequestDispatcher dispatcher = context
-							.getRequestDispatcher("/supEngMenu.html");
-					dispatcher.forward(request, response);
+//					ServletContext context = getServletContext();
+//					RequestDispatcher dispatcher = context.getRequestDispatcher("/supEngMenu.html");
+//					dispatcher.forward(request, response);
+					
+					response.sendRedirect("supEngMenu.html");
 				} else if (loginResultSet.getString(3).equals("Administrator")) {
-					ServletContext context = getServletContext();
-					RequestDispatcher dispatcher = context
-							.getRequestDispatcher("/adminMenu.html");
-					dispatcher.forward(request, response);
-				} else if (loginResultSet.getString(3).equals(
-						"Customer Service")) {
-					ServletContext context = getServletContext();
-					RequestDispatcher dispatcher = context
-							.getRequestDispatcher("/custSerRepMenu.html");
-					dispatcher.forward(request, response);
-				} else if (loginResultSet.getString(3).equals(
-						"Network Engineer")) {
-					ServletContext context = getServletContext();
-					RequestDispatcher dispatcher = context
-							.getRequestDispatcher("/netMgmtEngMenu.jsp");
-					dispatcher.forward(request, response);
+//					ServletContext context = getServletContext();
+//					RequestDispatcher dispatcher = context.getRequestDispatcher("/adminMenu.html");
+//					dispatcher.forward(request, response);
+					
+					response.sendRedirect("adminMenu.html");
+				} else if (loginResultSet.getString(3).equals("Customer Service")) {
+//					ServletContext context = getServletContext();
+//					RequestDispatcher dispatcher = context.getRequestDispatcher("/custSerRepMenu.html");
+//					dispatcher.forward(request, response);
+					
+					response.sendRedirect("custSerRepMenu.html");
+				} else if (loginResultSet.getString(3).equals("Network Engineer")) {
+//					ServletContext context = getServletContext();
+//					RequestDispatcher dispatcher = context.getRequestDispatcher("/netMgmtEngMenu.html");
+//					dispatcher.forward(request, response);
+					
+					response.sendRedirect("netMgmtEngMenu.html");
 				}
 
 			} else {
 				request.setAttribute("wrongUser", userName);
 
 				ServletContext context = getServletContext();
-				RequestDispatcher dispatcher = context
-						.getRequestDispatcher("/fail");
+				RequestDispatcher dispatcher = context.getRequestDispatcher("/fail");
 				dispatcher.forward(request, response);
 
 				System.out.println("Fail");

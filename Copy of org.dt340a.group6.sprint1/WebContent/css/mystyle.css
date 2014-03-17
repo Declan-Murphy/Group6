@@ -7,7 +7,7 @@
 */
 #inner-container {
    
-    background: none repeat nscroll 0 0 #FFFFFF;
+    background: none repeat scroll 0 0 #FFFFFF;
     border: 2px solid #EEEEEE;
     box-shadow: 5px 5px 5px #888888;
     border-radius: 5px;
@@ -171,7 +171,24 @@ margin-top: 13px;
     top: 50%;
 }
 
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
+}
+.aligncentre {
+	float: centre;
+}
 
+.centrewrapper {
+    text-align: center;
+}
+
+.block {
+    padding-left: 10px;
+    display:block;
+}
 
 /*Table for incoming Data Styling*/
 

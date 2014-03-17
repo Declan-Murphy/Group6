@@ -11,10 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.dt340a.group6.sprint1.persistence.PersistenceUtil;
 import org.dt340a.group6.sprint1.entity.CallFailure;
-import org.dt340a.group6.sprint1.entity.Cause;
-import org.dt340a.group6.sprint1.entity.Equipment;
-import org.dt340a.group6.sprint1.entity.FailureClass;
-import org.dt340a.group6.sprint1.validation.PrimitiveCheck;
 
 public class ModelEventCauseQueryServlet extends HttpServlet{
 	
@@ -116,13 +112,16 @@ public class ModelEventCauseQueryServlet extends HttpServlet{
 		out.println("                <h1>Call Investigation Assistant</h1>");
 		out.println("                <h2>Group 6</h2>");
 		out.println("                <h3>Network Management Engineer</h3>");
-		out.println("            </div>");
-		out.println("            <div id='inner-container' >  ");
+        out.println("                <div class='wrapper'>  ");
+        out.println("                <form class='alignleft' method='GET' action='logout'><input class='button' type='submit' value='Logout'/></form>      ");            
+        out.println("                <a href='netMgmtEngMenu.html'><button class='button alignright'>Home Page</button></a>  ");
+        out.println("                </div>  ");
+        out.println("            </div>");
+		out.println("            <div class='wrapper' id='inner-container' >  ");
 		out.println("            <h3> Find the number of occurrence of event ID's and cause codes by a given Model </h3>");		
 		out.println("            <form method=GET action='modelQuery'>");
 		out.println("               <input class='submissionfield' type='text' name='username' placeholder='Please Enter a Model Here' required >");
-		out.println("               <input type='submit'>");
-		out.println("               <input Type='button' VALUE='Back' onClick='history.go(-2);return true;'>");
+		out.println("               <input class='button' type='submit'>");
 		out.println("            </form>");
 		out.println("            </div>");
 		out.println("            <div id='inner-container'>");

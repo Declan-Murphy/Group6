@@ -172,7 +172,7 @@ public class PersistenceUtilTest {
 		assertSame(PersistenceUtil.findUserByUsername("admin").getClass(), User.class);
 		assertNotSame(PersistenceUtil.findUserByUsername("admin").getClass(), Cause.class);
 		assertEquals(PersistenceUtil.findUserByUsername("admin").getUsername(), "admin");
-		assertNotEquals(PersistenceUtil.findUserByUsername("admin").getUsername(), "admin!");
+		assertNotSame(PersistenceUtil.findUserByUsername("admin").getUsername(), "admin!");
 	}
 
 }

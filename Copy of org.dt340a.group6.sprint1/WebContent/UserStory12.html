@@ -18,23 +18,21 @@
 				
 				<h1>Call Investigation Assistant</h1> 
 				<h2>Group 6</h2> 
-				<h3>Customer Service Representative View</h3>
-				<h4>User Story 12</h4>
-				<h4>As a Network Management Engineer I want to see the Top 10 IMSIs 
-				<br>that had call failures during a time period.</h4>
-            </div>
+                <h3>Network Management Engineer</h3>                
+				<div class='wrapper'>
+					<form class='alignleft' method='GET' action='logout'><input class='button' type='submit' value='Logout'/></form>				
+					<a href='netMgmtEngMenu.html'><button class='button alignright'>Home Page</button></a>
+				</div>
+          </div>
             
-			<div id='inner-container' >
-			
+			<div class='wrapper' id='inner-container' >
+              <div><h3>Please select the date and time range to query for Top 10 IMSIs that had call failures:</h3></div>			
 				<form method=GET action='UserStory12Servlet'>
 					<input type='hidden' name='userStoryNumber' value='us12'>
-					<p>Please select the date and time range to query for:</p>
-					Start Date and time: <input type="datetime-local" value="2013-01-01T00:00" name="startDateTime">
-					End Date and time: <input type="datetime-local" value="2014-01-01T00:00" name="endDateTime">
-					<input type='submit'>
-					<input Type='button' VALUE='Back' onClick='history.go(-1);return true;'>
+					<strong>From (date and time):</strong> <input class='submissionfield' type='datetime-local' value='2013-01-01T00:00' name='startDateTime'>
+					<strong>To (date and time):</strong> <input class='submissionfield' type='datetime-local' value='2014-01-01T00:00' name='endDateTime'>
+					<input class='button' type='submit'>
 				</form>
-				
 			</div>
 		</div>
 		<div id='eric-multi'>

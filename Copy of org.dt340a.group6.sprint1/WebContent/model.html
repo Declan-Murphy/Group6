@@ -23,20 +23,20 @@
                 <h1>Call Investigation Assistant</h1> 
                 <h2>Group 6</h2> 
                 <h3>Network Management Engineer </h3>
-           
+				<div class='wrapper'>
+					<form class='alignleft' method='GET' action='logout'><input class='button' type='submit' value='Logout'/></form>				
+					<a href='netMgmtEngMenu.html'><button class='button alignright'>Home Page</button></a>
+				</div>           
             </div>
             
-           <div id='inner-container' >  
+           <div class='wrapper' id='inner-container'>  
                 
                 <h3> Find the number of occurrence of event ID's and cause codes by a given Model </h3>
                 
               <form method=GET action='modelQuery'>
                 <input class='submissionfield' type='text' name='username' placeholder='Please Enter Model Here' required>
-				<input type='submit'>
-                <input Type='button' VALUE='Back' onClick='history.go(-1);return true;'>
-               
-                </form>
-            
+				<input class='button' type='submit'>               
+              </form>            
             </div>          
 
         

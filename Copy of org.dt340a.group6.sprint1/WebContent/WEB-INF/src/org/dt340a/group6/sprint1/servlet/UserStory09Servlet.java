@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.dt340a.group6.sprint1.entity.CallFailure;
 import org.dt340a.group6.sprint1.persistence.PersistenceUtil;
 
 public class UserStory09Servlet extends HttpServlet{
@@ -41,7 +39,7 @@ public class UserStory09Servlet extends HttpServlet{
         List<List> callFailures = PersistenceUtil.findCountBetweenTimesTotalDuration(startDateTime, endDateTime);
         
         if (callFailures!=null) {
-            newmid(out, callFailures);                         
+            mid(out, callFailures);                         
         }
         else {
             out.println("<p class='button'>This query has returned no results.</p>");
@@ -49,7 +47,7 @@ public class UserStory09Servlet extends HttpServlet{
         bottomText(out);
       }
 
-    private void newmid(PrintWriter out, List<List> callFailures) {
+    private void mid(PrintWriter out, List<List> callFailures) {
       SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
       
       out.println("                    <tr class='alt'>");
@@ -81,82 +79,7 @@ public class UserStory09Servlet extends HttpServlet{
           count++;                    
       }
   }
-    
-    
-    
-    
-    private void mid(PrintWriter out, List<CallFailure> callFailures) {
-//        
-        int imsiCount = 0;
-        SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-        
-        out.println("                    <tr class='alt'>");
-        out.println("                      <th>From date:</th>");
-        out.println("                      <td align='center'>" + dateFormatter.format(startDateTime) + "</td>");
-        out.println("                      <th>To date:</th>");
-        out.println("                      <td align='center'>" + dateFormatter.format(endDateTime) + "</td>");
-        out.println("                    </tr>");
-        out.println("                    <tr>");        
-        out.println("                      <th>Count</th>");
-        out.println("                      <th>Number of Call Failures</th>");
-        out.println("                      <th>Total Call Failure Duration</th>");
-        out.println("                      <th>Average Call Failure Duration</th>");
-        out.println("                    </tr>");
-
-//        String currentIMSI = callFailures.get(0).getiMSI();
-        String currentIMSI = "";
-        int failureCount = 0;
-        int totalDuration = 0;
-        
-        int count=0;
-        for(CallFailure failure : callFailures){
-            Calendar cal = Calendar.getInstance();
-//            cal =failure.getDateTime();
-            
-            if( failure.getDateTime().after(startDateTime) && failure.getDateTime().before(endDateTime)){
-                if (!currentIMSI.equals("")) {
-                    if (!currentIMSI.equals(failure.getiMSI())) {                   
-                        if (count%2==0) {
-                            out.println("                    <tr>");
-                        }
-                        else {
-                            out.println("                    <tr class='alt'>");
-                        }
-                        out.println("                      <td align='center'>" + imsiCount + "</td>");
-                        out.println("                      <td align='center'>" + currentIMSI + "</td>");
-                        out.println("                      <td align='center'>" + failureCount + "</td>");
-                        out.println("                      <td align='center'>" + totalDuration/failureCount + "</td>");
-                        out.println("                    </tr>");
-                        count++;
-//                        
-                        imsiCount++;             
-
-                        failureCount=0;
-                        totalDuration=0;
-                    }
-                }
-                currentIMSI = failure.getiMSI();
-                failureCount++;
-                totalDuration += failure.getDuration();
-            }
-        }
-
-        if (count%2==0) {
-            out.println("                    <tr>");
-        }
-        else {
-            out.println("                    <tr class='alt'>");
-        }
-        out.println("                      <td align='center'>" + imsiCount + "</td>");
-        out.println("                      <td align='center'>" + currentIMSI + "</td>");
-        out.println("                      <td align='center'>" + failureCount + "</td>");
-        out.println("                      <td align='center'>" + totalDuration/failureCount + "</td>");
-        out.println("                    </tr>");
-//      
-        imsiCount++;
-        out.println("The total number of IMSIs displayed is " + imsiCount);
-    }
-    
+     
     private void topText(PrintWriter out) {
         out.println("<html>");
         out.println("    <head>");
@@ -176,17 +99,17 @@ public class UserStory09Servlet extends HttpServlet{
         out.println("                </div> ");
         out.println("                <h1>Call Investigation Assistant</h1>");
         out.println("                <h2>Group 6</h2>");
-        out.println("                <h3>Network Management Engineer View</h3>");
+        out.println("                <h3>Network Management Engineer</h3>   ");             
         out.println("                <div class='wrapper'>");
-        out.println("                	<a href='netMgmtEngMenu.html'><button class='button centre'>Home Page</button></a>");
-        out.println("                	<a href='index.html'><button class='button centre'>Log out</button></a>");
+        out.println("                	<form class='alignleft' method='GET' action='logout'><input class='button' type='submit' value='Logout'/></form>");
+        out.println("                	                  <a href='netMgmtEngMenu.html'><button class='button alignright'>Home Page</button></a>");
         out.println("                </div>");
         out.println("            </div>");
         out.println("            <div class='wrapper' id='inner-container' >  ");
         out.println("              <div><h3>Select the start date and end date to average over Call Failures:</h3></div>");
         out.println("              <form method=GET action='us09Query'>");
         out.println("                <strong>From (date and time):</strong><input class='submissionfield' type='datetime-local' name='startdate' value='2013-01-01T00:00' required='required'>");
-        out.println("                <strong>To (date and time):</strong><input class='submissionfield' type='datetime-local' name='enddate' value='2014-01-01T00:00' required='required'><br/>");
+        out.println("                <strong>To (date and time):</strong><input class='submissionfield' type='datetime-local' name='enddate' value='2014-01-01T00:00' required='required'>");
         out.println("                <input class='button' type='submit'>");
         out.println("              </form>");
         out.println("            </div>");

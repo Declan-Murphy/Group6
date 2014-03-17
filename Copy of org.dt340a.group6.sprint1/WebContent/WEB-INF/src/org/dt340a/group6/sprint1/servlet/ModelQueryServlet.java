@@ -13,10 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.dt340a.group6.sprint1.persistence.PersistenceUtil;
-import org.dt340a.group6.sprint1.query.IMSIQuery;
 import org.dt340a.group6.sprint1.entity.CallFailure;
 import org.dt340a.group6.sprint1.entity.Equipment;
-import org.dt340a.group6.sprint1.validation.PrimitiveCheck;
 
 public class ModelQueryServlet extends HttpServlet{
 	
@@ -36,24 +34,15 @@ public class ModelQueryServlet extends HttpServlet{
 		startTimeString = req.getParameter("starttime");
 		endTimeString = req.getParameter("endtime");
 		
-		//String[] parts = startTime.split("-");
-		//2014-03-12T11:11
-		
-		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");		
 		try {
 			startDate = sdf.parse(startTimeString);
 			endDate = sdf.parse(endTimeString);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 				
 		System.out.println("startTime:--" + startDate);
-		
-//		start = new Date(113, 0 ,11, 17, 15);
-//		end = new Date(113, 0 ,11, 17, 18);
-
 				
 		List<Equipment> equipment =PersistenceUtil.findEquipmentByModel(model);
 		
@@ -164,12 +153,16 @@ public class ModelQueryServlet extends HttpServlet{
 		out.println("                <h1>Call Investigation Assistant</h1>");
 		out.println("                <h2>Group 6</h2>");
 		out.println("                <h3>Support Engineer</h3>");
+        out.println("                <div class='wrapper'>");
+        out.println("                    <form class='alignleft' method='GET' action='logout'><input class='button' type='submit' value='Logout'/></form>  ");              
+        out.println("                    <a href='netMgmtEngMenu.html'><button class='button alignright'>Home Page</button></a>");
+        out.println("                </div>");
 		out.println("            </div>");
 		out.println("            <div id='inner-container' >  ");
 		out.println("            <form method=GET action='us08Query'>");
 		out.println("               <input class='submissionfield' type='text' name='model' placeholder='Please Enter a Model Name Here' required='required' ><br>");
-		out.println(" Start (date and time): <input type='datetime-local' name='starttime'  value='2013-01-01T00:00' required='required'><br> ");
-		out.println(" End (date and time): <input type='datetime-local' name='endtime'  value='2014-01-01T00:00' required='required'> <br>");
+		out.println("                Start (date and time): <input type='datetime-local' name='starttime'  value='2013-01-01T00:00' required='required'><br> ");
+		out.println("                 End (date and time): <input type='datetime-local' name='endtime'  value='2014-01-01T00:00' required='required'> <br>");
 		out.println("            <center><input class='button' type='submit'></center>");
 		out.println("            </form>");
 		out.println("            </div>");
