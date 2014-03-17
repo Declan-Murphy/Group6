@@ -26,7 +26,7 @@ public class LogOutServlet extends HttpServlet {
 //                out.println("<script>alert(\""+logOutMsg+"\");window.location.replace(\"index.html\");</script>");
                 cookie.setMaxAge(0);
                 res.addCookie(cookie);
-//                res.sendRedirect("index.html");
+                res.sendRedirect("index.html");
             }
         }
     }
