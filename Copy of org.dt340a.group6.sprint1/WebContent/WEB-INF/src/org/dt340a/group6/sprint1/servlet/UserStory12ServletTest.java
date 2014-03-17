@@ -1,7 +1,16 @@
 package org.dt340a.group6.sprint1.servlet;
 
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
+import java.io.File;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.io.FileUtils;
 import org.dt340a.group6.sprint1.query.UserStory12Object;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -10,21 +19,21 @@ import antlr.collections.List;
 
 public class UserStory12ServletTest {
 
-//	@Test
-//	public final void testDoGetHttpServletRequestHttpServletResponse() throws Exception {
-//		HttpServletRequest request = Mockito.mock(HttpServletRequest.class);       
-//		HttpServletResponse response = Mockito.mock(HttpServletResponse.class);
-//		
-//		Mockito.when(request.getParameter("startDateTime")).thenReturn("2013/01/01T00:00");
-//		Mockito.when(request.getParameter("startDateTime")).thenReturn("2013/01/01T00:00");
-//		PrintWriter writer = new PrintWriter("somefile.txt");
-//		
-//		new UserStory12Servlet().doPost(request, response);
-//		
+	@Test
+	public final void testDoGetHttpServletRequestHttpServletResponse() throws Exception {
+		HttpServletRequest request = Mockito.mock(HttpServletRequest.class);       
+		HttpServletResponse response = Mockito.mock(HttpServletResponse.class);
+		
+		Mockito.when(request.getParameter("startDateTime")).thenReturn("2013-01-01T00:00");
+//		Mockito.when(request.getParameter("startDateTime")).thenReturn("2013-01-01T00:00");
+		PrintWriter writer = new PrintWriter("somefile.txt");
+		
+		new UserStory12Servlet().doPost(request, response);
+		
 //		verify(request, atLeast(1)).getParameter("startDateTime"); 
-//		writer.flush();
-//		assertTrue(FileUtils.readFileToString(new File("somefile.txt"), "UTF-8").contains("My Expected String"));
-//    }
+		writer.flush();
+		assertTrue(FileUtils.readFileToString(new File("somefile.txt"), "UTF-8").contains("My Expected String"));
+    }
 	
 //	@Test // TODO
 //	public final void testSortTheArrayListOfUserStory12Objects(){
