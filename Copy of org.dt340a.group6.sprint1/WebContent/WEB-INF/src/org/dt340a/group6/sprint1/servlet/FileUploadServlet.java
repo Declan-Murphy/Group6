@@ -17,7 +17,7 @@ import javax.servlet.http.Part;
 import org.dt340a.group6.sprint1.fileImport.CallFailureReader;
 import org.dt340a.group6.sprint1.fileImport.FileReader;
 import org.dt340a.group6.sprint1.persistence.PersistenceUtil;
-import org.dt340a.group6.sprint1.validation.validateExcelFile;
+import org.dt340a.group6.sprint1.validation.ValidateExcelFile;
 
 @MultipartConfig
 public class FileUploadServlet extends HttpServlet {
@@ -58,7 +58,7 @@ public class FileUploadServlet extends HttpServlet {
  * 
  */
 		FileReader filereader = new FileReader(fileName);
-		if(new validateExcelFile(filereader).isXLSValid()){
+		if(new ValidateExcelFile(filereader).isXLSValid()){
 			PersistenceUtil.persistAll(fileName);
 //			System.out.println("Upload complete @ "
 //					+new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime()));

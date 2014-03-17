@@ -1,9 +1,8 @@
 package org.dt340a.group6.sprint1.fileImport;
 
-import org.dt340a.group6.sprint1.main.*;
 import org.dt340a.group6.sprint1.entity.*;
 import org.dt340a.group6.sprint1.persistence.*;
-import org.dt340a.group6.sprint1.validation.validateExcelFile;
+import org.dt340a.group6.sprint1.validation.ValidateExcelFile;
 
 import java.io.File;
 import java.io.FileInputStream;

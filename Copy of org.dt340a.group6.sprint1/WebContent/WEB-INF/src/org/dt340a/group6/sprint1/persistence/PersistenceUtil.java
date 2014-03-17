@@ -35,7 +35,7 @@ public class PersistenceUtil implements Serializable {
 		callFailureReader = new CallFailureReader();
 		allMasterTableRows = new AllMasterTableRows();
 	}
-
+	
 	public static void persistAll(String fileName) {
 		PersistenceUtil.filePath = fileName;
 		PersistenceUtil persistenceUtil = new PersistenceUtil();

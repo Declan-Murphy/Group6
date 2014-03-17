@@ -27,11 +27,11 @@ import org.junit.runner.RunWith;
 
 import static org.mockito.Mockito.*;
 
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
-
-import static org.powermock.api.easymock.PowerMock.*;
-import static org.easymock.EasyMock.expect;
+//import org.powermock.core.classloader.annotations.PrepareForTest;
+//import org.powermock.modules.junit4.PowerMockRunner;
+//
+//import static org.powermock.api.easymock.PowerMock.*;
+//import static org.easymock.EasyMock.expect;
 
 public class IMSIListServletTest {
 
