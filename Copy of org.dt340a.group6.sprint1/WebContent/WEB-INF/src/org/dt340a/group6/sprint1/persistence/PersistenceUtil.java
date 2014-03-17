@@ -55,55 +55,45 @@ public class PersistenceUtil implements Serializable {
 	}
 
 	public void persistFailureClasses(EntityManager entityManager) {
-		// System.out.println("FailureClasses start");
 		allMasterTableRows.setFailureClasses(failureClassReader
 				.getAllFailureClassRows());
 		for (Object row : allMasterTableRows.getFailureClasses()) {
 			// entityManager.persist(row);
 			entityManager.merge(row);
 		}
-		// System.out.println("FailureClasses end");
 	}
 
 	public void persistEventCauses(EntityManager entityManager) {
-		// System.out.println("EventCauses start");
 		allMasterTableRows.setCauses(causeReader.getAllEventCauseRows());
 		for (Object row : allMasterTableRows.getCauses()) {
 			// entityManager.persist(row);
 			entityManager.merge(row);
 		}
-		// System.out.println("EventCauses end");
 	}
 
 	public void persistCountryOperators(EntityManager entityManager) {
-		// System.out.println("CountryOperators start");
 		allMasterTableRows.setCountryOperators(countryOperatorReader
 				.getAllCountryOperatorRows());
 		for (Object row : allMasterTableRows.getCountryOperators()) {
 			// entityManager.persist(row);
 			entityManager.merge(row);
 		}
-		// System.out.println("CountryOperators end");
 	}
 
 	public void persistEquipment(EntityManager entityManager) {
-		// System.out.println("Equipment start");
 		allMasterTableRows.setEquipment(equipmentReader.getAllEquipmentRows());
 		for (Object row : allMasterTableRows.getEquipment()) {
 			// entityManager.persist(row);
 			entityManager.merge(row);
 		}
-		// System.out.println("Equipment end");
 	}
 
 	public void persistCallFailures(EntityManager entityManager) {
-		// System.out.println("CallFailures start");
 		for (Object row : callFailureReader
 				.getAllCallFailureRows(allMasterTableRows)) {
 			// entityManager.persist(row);
 			entityManager.merge(row);
 		}
-		// System.out.println("CallFailures end");
 	}
 
 	public static void persistAll(List<Object> entityList) {
@@ -147,48 +137,12 @@ public class PersistenceUtil implements Serializable {
 	}
 
 	/* ******************************************************************
-	 * Methods to manage the database structure
-	 * *****************************************************************
-	 */
-	public static void dropTablesIfExist() {
-		System.out.println("Drop tables started");
-		EntityManager em = emf.createEntityManager();
-		em.getTransaction().begin();
-		em.createNativeQuery(
-				"drop tables if exists CallFailure, Cause, CountryOperator, Equipment, FailureClass;")
-				.executeUpdate();
-		em.getTransaction().commit();
-		em.close();
-		System.out.println("Drop tables completes");
-	}
-
-	/* ******************************************************************
 	 * Methods relating to the entities SQL queries
 	 * *****************************************************************
 	 */
-	public static List<Cause> findAllCauses() {
-		EntityManager em = emf.createEntityManager();
-		List<Cause> causes = (List<Cause>) em.createNamedQuery("Cause.findAll")
-				.getResultList();
-		em.close();
-
-		return causes;
-	}
-
-	public static List<Cause> findCausesByEventId(double eventId) {
-		EntityManager em = emf.createEntityManager();
-		List<Cause> causes = (List<Cause>) em
-				.createNamedQuery("Cause.findByEvent_id")
-				.setParameter("eventId", eventId).getResultList();
-		em.close();
-
-		if (causes.size() == 0)
-			return null;
-		else
-			return causes;
-	}
 
 	// TODO why is this called findCausecode???
+	@SuppressWarnings("unchecked")
 	public static List<CallFailure> findCauseCode_EventIDByIMSI(String IMSI) {
 
 		EntityManager em = emf.createEntityManager();
@@ -203,6 +157,7 @@ public class PersistenceUtil implements Serializable {
 			return callFailures;
 	}
 
+	@SuppressWarnings("unchecked")
 	public static List<CallFailure> findCallByIMSIBetweenDate(String IMSI,
 			Date startDateTime, Date endDateTime) {
 
@@ -220,47 +175,7 @@ public class PersistenceUtil implements Serializable {
 			return callFailures;
 	}
 
-	public static List<CallFailure> findAllCallFailure() {
-
-		EntityManager em = emf.createEntityManager();
-		List<CallFailure> callFailures = (List<CallFailure>) em
-				.createNamedQuery("CallFailure.findAll").getResultList();
-		em.close();
-
-		if (callFailures.size() == 0)
-			return null;
-		else
-			return callFailures;
-	}
-
-	public static List<CallFailure> findCallFailureByTAC(int tac) {
-
-		EntityManager em = emf.createEntityManager();
-		List<CallFailure> callFailures = (List<CallFailure>) em
-				.createNamedQuery("CallFailure.findByTAC")
-				.setParameter("TAC", tac).getResultList();
-		em.close();
-
-		if (callFailures.size() == 0)
-			return null;
-		else
-			return callFailures;
-	}
-
-	public static List<Cause> findCauseCode(double cause, double event) {
-		// eventId and o.causeCode =:causeCode
-		EntityManager em = emf.createEntityManager();
-		List<Cause> causeList = (List<Cause>) em.createNamedQuery("Cause.find")
-				.setParameter("eventId", event)
-				.setParameter("causeCode", cause).getResultList();
-		em.close();
-
-		if (causeList.size() == 0)
-			return null;
-		else
-			return causeList;
-	}
-
+	@SuppressWarnings("unchecked")
 	public static List<CallFailure> findCallFailureByTACInTime(int tac,
 			Date startDateTime, Date endDateTime) {
 
@@ -278,35 +193,7 @@ public class PersistenceUtil implements Serializable {
 			return callFailures;
 	}
 
-	// public static List<CallFailure> findCallByIMSIBetweenDate(String IMSI,
-	// Date startDateTime, Date endDateTime){
-	//
-	// EntityManager em = emf.createEntityManager();
-	// List<CallFailure> callFailures = (List<CallFailure>)
-	// em.createNamedQuery("CallFailure.findImsiBetween").setParameter("IMSI",
-	// IMSI).setParameter("startDateTime",
-	// startDateTime).setParameter("endDateTime", endDateTime).getResultList();
-	// em.close();
-	//
-	// if (callFailures.size() == 0)
-	// return null;
-	// else
-	// return callFailures;
-	// }
-
-	public static List<Equipment> findEquipmentByEquipment_tAC(int eTAC) {
-		EntityManager em = emf.createEntityManager();
-		List<Equipment> equipment = (List<Equipment>) em
-				.createNamedQuery("Equipment.findByTac")
-				.setParameter("Tac", eTAC).getResultList();
-		em.close();
-
-		if (equipment.size() == 0)
-			return null;
-		else
-			return equipment;
-	}
-
+	@SuppressWarnings("unchecked")
 	public static List<Equipment> findEquipmentByModel(String model) {
 		EntityManager em = emf.createEntityManager();
 		List<Equipment> equipment = (List<Equipment>) em
@@ -320,19 +207,7 @@ public class PersistenceUtil implements Serializable {
 			return equipment;
 	}
 
-	public static List<CallFailure> findDate(Date startDate) {
-		EntityManager em = emf.createEntityManager();
-		List<CallFailure> callFailures = (List<CallFailure>) em
-				.createNamedQuery("CallFailure.findDate")
-				.setParameter("startDate", startDate).getResultList();
-		em.close();
-
-		if (callFailures.size() == 0)
-			return null;
-		else
-			return callFailures;
-	}
-
+	@SuppressWarnings("unchecked")
 	public static List<List> findCountBetweenTimesTotalDuration(
 			Date startDateTime, Date endDateTime) {
 		EntityManager em = emf.createEntityManager();
@@ -349,6 +224,7 @@ public class PersistenceUtil implements Serializable {
 			return us09List;
 	}
 
+	@SuppressWarnings("unchecked")
 	public static List<CallFailure> countCauseCode(int tAC, double cause,
 			double event) {
 		// eventId and o.causeCode =:causeCode
@@ -365,6 +241,7 @@ public class PersistenceUtil implements Serializable {
 			return causeList;
 	}
 
+	@SuppressWarnings("unchecked")
 	public static List<CallFailure> groupCallFailureByTAC(int tac) {
 		EntityManager em = emf.createEntityManager();
 		List<CallFailure> callFailures = (List<CallFailure>) em
@@ -377,7 +254,7 @@ public class PersistenceUtil implements Serializable {
 			return callFailures;
 	}
 
-	public static List<CallFailure> findAllBetween(Date startDateTime,
+	public static List<CallFailure> findAllCallFailuresBetween(Date startDateTime,
 			Date endDateTime) {
 		EntityManager em = emf.createEntityManager();
 		@SuppressWarnings("unchecked")
@@ -392,7 +269,7 @@ public class PersistenceUtil implements Serializable {
 			return callFailures;
 	}
 
-	public static List<CallFailure> findAll() {
+	public static List<CallFailure> findAllCallFailures() {
 		EntityManager em = emf.createEntityManager();
 		@SuppressWarnings("unchecked")
 		List<CallFailure> callFailures = (List<CallFailure>) em
@@ -404,6 +281,7 @@ public class PersistenceUtil implements Serializable {
 			return callFailures;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static List<User> findAllUsers(){
 		EntityManager em = emf.createEntityManager();
 		List<User> users = (List<User>) em.createNamedQuery("User.findAll").getResultList();
@@ -411,6 +289,7 @@ public class PersistenceUtil implements Serializable {
 		return users;		
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static User findUserByUsername(String username){
 		
 		EntityManager em = emf.createEntityManager();

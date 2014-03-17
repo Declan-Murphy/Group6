@@ -9,15 +9,6 @@ import org.dt340a.group6.sprint1.persistence.PersistenceUtil;
 
 public class UserConfig {
 
-	public UserConfig(){	
-	}
-	public void viewUser(){
-		List<User> users = PersistenceUtil.findAllUsers();
-		for(User u:users){
-			System.out.println("User "+u.getUsername()+ " exists.");
-		}
-	}
-
 	public void createUser(String name, String password, String type){
 		User user = new User(name, password, type);
 		PersistenceUtil.persist(user);

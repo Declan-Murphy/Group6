@@ -17,11 +17,6 @@ import org.dt340a.group6.sprint1.entity.Cause;
 import org.dt340a.group6.sprint1.query.*;
 
 public class UserStory12QueryTest {
-
-	@Test
-	public final void testCorrectReturnTypeFindAllIMSIsWithCallFailureGivenTime() {
-		
-	}
 	
 	@Test
 	public final void testIncorrectReturnFindAll() {
@@ -42,16 +37,9 @@ public class UserStory12QueryTest {
 			Date startDate = sdf.parse("01/01/2000T00:00");
 			Date endDate = sdf.parse("01/01/2016T00:00");
 			UserStory12Query usq = new UserStory12Query();
-//			assertSame(usq.findAllBetween(startDate, endDate).getClass(), List.class);
 			assertSame(usq.findAllBetween(startDate, endDate).get(0).getClass(), CallFailure.class);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 	}
-
-	@Test
-	public final void testFindCountOfOccurancesForGivenIMSI() {
-		
-	}
-
 }
