@@ -84,111 +84,7 @@ public class PersistenceUtilTest {
 		assertNotSame(PersistenceUtil.findCauseCode_EventIDByIMSI("aaaa"), CallFailure.class);
 	}
 
-<<<<<<< HEAD
-//	@Test
-//	public final void testFindCallByIMSIBetweenDate() {
-//		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy'T'hh:mm");
-//		try {
-//			Date startDateTime = sdf.parse("01/01/2013T00:00");
-//			Date endDateTime = sdf.parse("01/01/2014T00:00");
-//			assertEquals(PersistenceUtil.findCallByIMSIBetweenDate("191911000516761", startDateTime, endDateTime).get(0).getClass(), CallFailure.class);
-//			assertNotEquals(PersistenceUtil.findCallByIMSIBetweenDate("191911000516761", startDateTime, endDateTime).get(0).getClass(), Equipment.class);
-//			startDateTime = sdf.parse("01/01/4013T00:00");
-//			endDateTime = sdf.parse("01/01/4014T00:00");
-//			assertEquals(PersistenceUtil.findCallByIMSIBetweenDate("191911000516761", startDateTime, endDateTime), null);
-//			assertNotEquals(PersistenceUtil.findCallByIMSIBetweenDate("191911000516761", startDateTime, endDateTime), "null");
-//		} catch (ParseException e) {
-//			e.printStackTrace();
-//		}
-//	}
-//
-//	@Test//TODO
-//	public final void testFindCallFailureByTACInTime() {
-//		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy'T'hh:mm");
-//		try {
-//			Date startDateTime = sdf.parse("01/01/2013T00:00");
-//			Date endDateTime = sdf.parse("01/01/2014T00:00");
-////			assertEquals(PersistenceUtil.findCallFailureByTACInTime(101700, startDateTime, endDateTime).getClass(), List.class);
-//		} catch (ParseException e) {
-//			e.printStackTrace();
-//		}
-//	}
-//
-//	@Test
-//	public final void testFindEquipmentByModel() {
-//		assertEquals(PersistenceUtil.findEquipmentByModel("Wireless CPU Q2687").get(0).gettAC(), 101700);
-//		assertNotEquals(PersistenceUtil.findEquipmentByModel("Wireless CPU Q2687").get(0).gettAC(), "tac");
-//		assertEquals(PersistenceUtil.findEquipmentByModel("Wireless CPU Q2687").get(0).getClass(), Equipment.class);
-//		assertNotEquals(PersistenceUtil.findEquipmentByModel("Wireless CPU Q2687").get(0).getClass(), Cause.class);
-//	}
-//
-//	@Test//TODO
-//	public final void testFindCountBetweenTimesTotalDuration() {
-//		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy'T'hh:mm");
-//		try {
-//			Date startDateTime = sdf.parse("01/01/2013T00:00");
-//			Date endDateTime = sdf.parse("01/01/2014T00:00");
-////			assertEquals(PersistenceUtil.findCountBetweenTimesTotalDuration(startDateTime, endDateTime).get(0).get(0).getClass(), List.class);
-//		} catch (ParseException e) {
-//			e.printStackTrace();
-//		}
-//	}
-//
-//	@Test//TODO
-//	public final void testCountCauseCode() {
-////		assertEquals(PersistenceUtil.countCauseCode(tAC, cause, event).get(0).getClass(), CallFailure.class);
-//	}
-//
-//	@Test//TODO
-//	public final void testGroupCallFailureByTAC() {
-//		//can't find a TAC it works for...
-////		assertEquals(PersistenceUtil.groupCallFailureByTAC(101700).getClass(), List.class);
-////		assertEquals(PersistenceUtil.groupCallFailureByTAC(100700), null);
-//		
-//	}
-//	
-//	@Test 
-//	public final void testFindAllCallFailuresBetween(){
-//		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy'T'hh:mm");
-//		try {
-//			Date startDateTime = sdf.parse("01/01/2013T00:00");
-//			Date endDateTime = sdf.parse("01/01/2014T00:00");
-//			assertSame(PersistenceUtil.findAllCallFailuresBetween(startDateTime, endDateTime).get(0).getClass(), CallFailure.class);
-//			assertNotSame(PersistenceUtil.findAllCallFailuresBetween(startDateTime, endDateTime).get(0).getClass(), Cause.class);
-//			startDateTime = sdf.parse("01/01/4014T00:00");
-//			endDateTime = sdf.parse("01/01/4015T00:00");
-//			assertSame(PersistenceUtil.findAllCallFailuresBetween(startDateTime, endDateTime), null);
-//			assertNotSame(PersistenceUtil.findAllCallFailuresBetween(startDateTime, endDateTime), "null");
-//		} catch (ParseException e) {
-//			e.printStackTrace();
-//		}
-//	}
-//
-//	@Test
-//	public final void testFindAllCallFailures() {
-//		assertSame(PersistenceUtil.findAllCallFailures().get(0).getClass(), CallFailure.class);
-//		assertNotSame(PersistenceUtil.findAllCallFailures().get(0).getClass(), Cause.class);
-//	}
-//
-//	@Test
-//	public final void testFindAllUsers() {
-//		assertSame(PersistenceUtil.findAllUsers().get(0).getClass(), User.class);
-//		assertNotSame(PersistenceUtil.findAllUsers().get(0).getClass(), CallFailure.class);
-//	}
-//
-//	@Test
-//	public final void testFindUserByUsername() {
-//		assertSame(PersistenceUtil.findUserByUsername("admin").getClass(), User.class);
-//		assertNotSame(PersistenceUtil.findUserByUsername("admin").getClass(), Cause.class);
-//		
-//		assertEquals(PersistenceUtil.findUserByUsername("admin").getUsername(), "admin");
-//		assertNotSame(PersistenceUtil.findUserByUsername("admin").getUsername(), "admin!");
-//		assertNotEquals(PersistenceUtil.findUserByUsername("admin").getUsername(), "admin!");
-//		
-//		assertEquals(PersistenceUtil.findUserByUsername("PandaBear"), null);
-//		assertNotEquals(PersistenceUtil.findUserByUsername("PandaBear"), "null");
-//	}
-=======
+
 	@Test
 	public final void testFindCallByIMSIBetweenDate() {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy'T'hh:mm");
@@ -290,6 +186,4 @@ public class PersistenceUtilTest {
 		assertEquals(PersistenceUtil.findUserByUsername("PandaBear"), null);
 		assertNotEquals(PersistenceUtil.findUserByUsername("PandaBear"), "null");
 	}
->>>>>>> branch 'master' of https://github.com/Declan-Murphy/Group6.git
-
 }
