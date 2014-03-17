@@ -180,13 +180,10 @@ public class PersistenceUtilTest {
 		assertSame(PersistenceUtil.findUserByUsername("admin").getClass(), User.class);
 		assertNotSame(PersistenceUtil.findUserByUsername("admin").getClass(), Cause.class);
 		assertEquals(PersistenceUtil.findUserByUsername("admin").getUsername(), "admin");
-<<<<<<< HEAD
 		assertNotSame(PersistenceUtil.findUserByUsername("admin").getUsername(), "admin!");
-=======
 		assertNotEquals(PersistenceUtil.findUserByUsername("admin").getUsername(), "admin!");
 		assertEquals(PersistenceUtil.findUserByUsername("PandaBear"), null);
 		assertNotEquals(PersistenceUtil.findUserByUsername("PandaBear"), "null");
->>>>>>> branch 'master' of https://github.com/Declan-Murphy/Group6.git
 	}
 
 }
