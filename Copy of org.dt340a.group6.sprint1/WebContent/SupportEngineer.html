@@ -26,18 +26,18 @@
 			<h3>Support Engineer View</h3>
 			
 			<div class="wrapper">
-					<a href="supEngMenu.html"><button class='button centre'>Home Page</button></a>
-					<a href="index.html"><button class='button centre'>Log out</button></a>
-			</div>
+					<a href="supEngMenu.html"><button class='button alignright'>Home Page</button></a>
+					<form class='alignleft' method='GET' action='logout'><input class='button' type='submit' value='Logout'/></form>				
+					</div>
 		</div>
 
-		<div id='inner-container'>
+		<div class="wrapper" id='inner-container'>
 
 			<form method=GET action='us08Query'>
 					<strong>Enter Model:</strong> <input class='submissionfield' type='text' name='model'placeholder='Please Enter an Model Name Here' required='required'><br><br>
-					<strong>Start (date and time):</strong> <input class='submissionfield' type="datetime-local" name="starttime"  value="2013-01-01T00:00" required='required'> 
+					<strong>Start (date and time):</strong> <input class='submissionfield' type="datetime-local" name="starttime"  value="2013-01-01T00:00" required='required'><br><br>
 					<strong>End (date and time): </strong><input class='submissionfield' type="datetime-local" name="endtime"  value="2014-01-01T00:00" required='required'><br>
-					<center>
+					<center><br>
 					<input class='button' type='submit'> 
 					</center>
 			</form>
