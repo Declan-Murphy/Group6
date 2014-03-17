@@ -30,3 +30,4 @@ public class LogOutServlet extends HttpServlet {
             }
         }
     }
+}
