@@ -23,7 +23,7 @@ public class LogOutServlet extends HttpServlet {
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("user")) {
                 String logOutMsg = "Goodbye "+cookie.getValue()+", please come again.";
-                out.println("<script>alert(\""+logOutMsg+"\");window.location.replace(\"index.html\");</script>");
+//                out.println("<script>alert(\""+logOutMsg+"\");window.location.replace(\"index.html\");</script>");
                 cookie.setMaxAge(0);
                 res.addCookie(cookie);
 //                res.sendRedirect("index.html");

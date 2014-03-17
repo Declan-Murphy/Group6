@@ -24,18 +24,13 @@ public class RegisterServlet extends HttpServlet {
 		String userType = request.getParameter("userType");
 		
 		HttpSession session = request.getSession(false);
-//		out.println(userName + " has been registered ");
-//		out.println("<br>");
-//		out.println("<a href='register.html'>Back</a>");
-//		out.println("</center>");
-//		out.println("</h1></body>");
 		
 		User user = null;
 		user = PersistenceUtil.findUserByUsername(userName);
 		
 		genericHeader(out);
 		startBody(out);
-		startContainer(out);
+//		startContainer(out);
 		
 		
 		if(user != null){
@@ -92,7 +87,12 @@ public class RegisterServlet extends HttpServlet {
 		out.println("                </div> ");
 		out.println("                <h1>Call Investigation Assistant</h1>");
 		out.println("                <h2>Group 6</h2>");
-		out.println("                <h3>Customer Service Representative View</h3>");
+        out.println("                <h3>System Administrator</h3>");
+        out.println("                <div class='wrapper'>");
+        out.println("                   <form class='alignleft' method='GET' action='logout'><input class='button' type='submit' value='Logout'/></form>");                
+        out.println("                   <a href='adminMenu.html'><button class='button alignright'>Home Page</button></a>");
+        out.println("                </div>");
+        out.println("            </div>");
 	}
 	
 	/**
@@ -119,6 +119,8 @@ public class RegisterServlet extends HttpServlet {
 	}
 	
 	private void formStuff(PrintWriter out){
+	       out.println("            <div id='inner-container'>");
+
 		out.println("                <table border=1>");
 		out.println("                <tr>");
 		out.println("                	<td>Enter Your Name :</td>");

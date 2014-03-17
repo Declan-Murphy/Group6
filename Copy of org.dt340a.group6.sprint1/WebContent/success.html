@@ -29,15 +29,17 @@
 				
 				<h1>Call Investigation Assistant</h1> 
 				<h2>Group 6</h2> 
-				<h3>System Administrator View</h3>
-			</div>
-            
+				<h3>System Administrator</h3>
+				<div class='wrapper'>
+					<form class='alignleft' method='GET' action='logout'><input class='button' type='submit' value='Logout'/></form>				
+					<a href='adminMenu.html'><button class='button alignright'>Home Page</button></a>
+				</div>
+			</div>            
 			<div id="upload-container" >     
-				<form action="fileUpload" enctype="multipart/form-data" method="post">
-					<input type="file" name="uploadFile" required="required"  />
-					<input class='button' type="submit" value="Upload File"/> 
-					<input Type="button" VALUE="Back" onClick="history.go(-2);return true;">
-				</form>
+                <form action="fileUpload" enctype="multipart/form-data" method="post">
+                    <input type="file" name="uploadFile" required="required" onchange="requiredSelected()" />
+                    <input class='button' type="submit" value="Upload File" onclick="showLoadingImage()"/> 
+                </form>
 			</div>
 			
 			<div id="upload-container">
