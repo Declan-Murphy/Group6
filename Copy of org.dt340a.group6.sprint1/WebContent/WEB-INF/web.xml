@@ -21,6 +21,14 @@
     <url-pattern>/UserStory12Servlet</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>Us5servlet</servlet-name>
+    <servlet-class>org.dt340a.group6.sprint1.servlet.Us5servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Us5servlet</servlet-name>
+    <url-pattern>/Us5servlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>modelQuery</servlet-name>
     <servlet-class>org.dt340a.group6.sprint1.servlet.ModelEventCauseQueryServlet</servlet-class>
   </servlet>

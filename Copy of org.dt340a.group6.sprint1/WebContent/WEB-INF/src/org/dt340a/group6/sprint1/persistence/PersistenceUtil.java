@@ -278,22 +278,6 @@ public class PersistenceUtil implements Serializable {
 			return callFailures;
 	}
 
-	// public static List<CallFailure> findCallByIMSIBetweenDate(String IMSI,
-	// Date startDateTime, Date endDateTime){
-	//
-	// EntityManager em = emf.createEntityManager();
-	// List<CallFailure> callFailures = (List<CallFailure>)
-	// em.createNamedQuery("CallFailure.findImsiBetween").setParameter("IMSI",
-	// IMSI).setParameter("startDateTime",
-	// startDateTime).setParameter("endDateTime", endDateTime).getResultList();
-	// em.close();
-	//
-	// if (callFailures.size() == 0)
-	// return null;
-	// else
-	// return callFailures;
-	// }
-
 	public static List<Equipment> findEquipmentByEquipment_tAC(int eTAC) {
 		EntityManager em = emf.createEntityManager();
 		List<Equipment> equipment = (List<Equipment>) em

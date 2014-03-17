@@ -1,11 +1,9 @@
 package org.dt340a.group6.sprint1.persistence;
 
-import static org.junit.Assert.*;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertSame;
 
 import org.dt340a.group6.sprint1.entity.CallFailure;
 import org.dt340a.group6.sprint1.entity.Cause;
@@ -139,20 +137,12 @@ public class PersistenceUtilTest {
 		
 	}
 
-	@Test
-	public final void testGroupCallFailureByTAC() {
-		
-	}
-
-	@Test
-	public final void testFindAllBetween() {
-		
-	}
-
 //	@Test
-//	public final void testFindCountOfOccurancesForGivenIMSI() {
-//		assertSame(PersistenceUtil.findCountOfOccurancesForGivenIMSI("191911000205790").get(0).getClass(), CallFailure.class);
-//		assertNotSame(PersistenceUtil.findAll().get(0).getClass(), Cause.class);
+//	public final void testGroupCallFailureByTAC() {
+//		assertSame(PersistenceUtil.groupCallFailureByTAC(101700).get(0).getClass(), CallFailure.class);
+//		assertNotSame(PersistenceUtil.groupCallFailureByTAC(101700).get(0).getClass(), Equipment.class);
+//		assertSame(PersistenceUtil.groupCallFailureByTAC(101700).getClass(), List.class);
+//		assertNotSame(PersistenceUtil.groupCallFailureByTAC(101700).getClass(), CallFailure.class);
 //	}
 
 	@Test
