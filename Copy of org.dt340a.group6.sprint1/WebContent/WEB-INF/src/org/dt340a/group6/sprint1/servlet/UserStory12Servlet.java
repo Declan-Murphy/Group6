@@ -27,6 +27,7 @@ public class UserStory12Servlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	Date startDate, endDate;
+    int count=0;
 	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -109,7 +110,6 @@ public class UserStory12Servlet extends HttpServlet {
 	 * @param results
 	 */
 	private void queryTableUS12(PrintWriter out, ArrayList<UserStory12Object> results) {
-		int count=0;
 		queryTableHeadersUS12(out);
 		
 		for(UserStory12Object uso : results){
@@ -134,7 +134,8 @@ public class UserStory12Servlet extends HttpServlet {
 	 * @param fail CallFailure
 	 */
 	private void fillRowUS12(PrintWriter out, UserStory12Object uso) {
-		out.println("                      <td>" + uso.getImsi() + "</td>");
+        out.println("                      <td>" + (1+count) + "</td>");
+        out.println("                      <td>" + uso.getImsi() + "</td>");
 		out.println("                      <td>" + uso.getCount() + "</td>");
 		out.println("                    </tr>");
 	}
@@ -149,6 +150,7 @@ public class UserStory12Servlet extends HttpServlet {
 //        out.println("                      <td> </td>");
 //		out.println("                    </tr>");
 		out.println("                    <tr>");
+        out.println("                      <th>#</th>");
         out.println("                      <th>IMSI</th>");
         out.println("                      <th>Number of Failures</th>");
 		out.println("                    </tr>");

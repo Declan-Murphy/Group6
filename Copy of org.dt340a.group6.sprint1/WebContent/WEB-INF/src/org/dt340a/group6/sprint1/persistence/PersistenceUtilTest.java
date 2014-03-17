@@ -23,52 +23,52 @@ public class PersistenceUtilTest {
 
 	@Test//TODO
 	public final void testPersistAllString() {
-		
+
 	}
 
 	@Test//TODO
 	public final void testPersistFailureClasses() {
-		
+
 	}
 
 	@Test//TODO
 	public final void testPersistEventCauses() {
-		
+
 	}
 
 	@Test//TODO
 	public final void testPersistCountryOperators() {
-		
+
 	}
 
 	@Test//TODO
 	public final void testPersistEquipment() {
-		
+
 	}
 
 	@Test//TODO
 	public final void testPersistCallFailures() {
-		
+
 	}
 
 	@Test//TODO
 	public final void testPersistAllListOfObject() {
-		
+
 	}
 
 	@Test//TODO
 	public final void testPersist() {
-		
+
 	}
 
 	@Test//TODO
 	public final void testRemove() {
-		
+
 	}
 
 	@Test//TODO
 	public final void testMerge() {
-		
+
 	}
 
 	@Test//TODO
@@ -143,9 +143,9 @@ public class PersistenceUtilTest {
 		//can't find a TAC it works for...
 //		assertEquals(PersistenceUtil.groupCallFailureByTAC(101700).getClass(), List.class);
 //		assertEquals(PersistenceUtil.groupCallFailureByTAC(100700), null);
-		
+
 	}
-	
+
 	@Test 
 	public final void testFindAllCallFailuresBetween(){
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy'T'hh:mm");
@@ -180,13 +180,9 @@ public class PersistenceUtilTest {
 		assertSame(PersistenceUtil.findUserByUsername("admin").getClass(), User.class);
 		assertNotSame(PersistenceUtil.findUserByUsername("admin").getClass(), Cause.class);
 		assertEquals(PersistenceUtil.findUserByUsername("admin").getUsername(), "admin");
-<<<<<<< HEAD
-		assertNotSame(PersistenceUtil.findUserByUsername("admin").getUsername(), "admin!");
-=======
 		assertNotEquals(PersistenceUtil.findUserByUsername("admin").getUsername(), "admin!");
 		assertEquals(PersistenceUtil.findUserByUsername("PandaBear"), null);
 		assertNotEquals(PersistenceUtil.findUserByUsername("PandaBear"), "null");
->>>>>>> branch 'master' of https://github.com/Declan-Murphy/Group6.git
 	}
 
 }

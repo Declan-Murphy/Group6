@@ -39,8 +39,8 @@ public class CallFailureReader {
 				numOfInvalidRows++;
 			}
 		}
-		System.out.println("valid rows = " + numOfInvalidRows + " ");
-		System.out.println("Ivalid rows = " + numOfValidRows + " ");
+		System.out.println("Invalid rows = " + numOfInvalidRows + " ");
+		System.out.println("Valid rows = " + numOfValidRows + " ");
 		return callFailures;
 	}
 
