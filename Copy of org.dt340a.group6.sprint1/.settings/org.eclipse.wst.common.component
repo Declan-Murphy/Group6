@@ -2,6 +2,7 @@
     <wb-module deploy-name="org.dt340a.group6.sprint1">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/WebContent/WEB-INF/test"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/WebContent/WEB-INF/src"/>
         <property name="context-root" value="org.dt340a.group6.sprint1"/>
         <property name="java-output-path" value="/org.dt340a.group6.sprint1/WebContent/WEB-INF/classes"/>
     </wb-module>
