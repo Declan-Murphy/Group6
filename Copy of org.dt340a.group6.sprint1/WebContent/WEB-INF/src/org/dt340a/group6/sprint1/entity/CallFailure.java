@@ -24,6 +24,7 @@ import javax.persistence.NamedQuery;
  @NamedQuery(name = "CallFailure.findImsiBetween", query = "select o from CallFailure o where o.dateTime between :startDateTime and :endDateTime and o.iMSI=:IMSI"),
  @NamedQuery(name = "CallFailure.findCountOfOccurancesForGivenIMSI", query = "select count(*) from CallFailure o where o.iMSI=:IMSI"),
  @NamedQuery(name = "CallFailure.findByTACInTime", query = "select o from CallFailure o where o.equipment.tAC=:TAC and o.dateTime between :startDateTime and :endDateTime"),
+ @NamedQuery(name = "CallFailure.findAffectedIMSIsGivenCauseClass", query = "select o from CallFailure o where o.failureClass.failureClass=:causeClass group by o.iMSI"),
 })
 
 @Entity

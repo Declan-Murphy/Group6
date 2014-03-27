@@ -151,9 +151,8 @@ public class PersistenceUtil implements Serializable {
 	public static List<CallFailure> findCauseCode_EventIDByIMSI(String IMSI) {
 
 		EntityManager em = emf.createEntityManager();
-		List<CallFailure> callFailures = (List<CallFailure>) em
-				.createNamedQuery("CallFailure.findByIMSI")
-				.setParameter("IMSI", IMSI).getResultList();
+		List<CallFailure> callFailures = (List<CallFailure>) 
+				em.createNamedQuery("CallFailure.findByIMSI").setParameter("IMSI", IMSI).getResultList();
 		em.close();
 
 		if (callFailures.size() == 0)
@@ -306,4 +305,17 @@ public class PersistenceUtil implements Serializable {
 		else 
 			return users.get(0);
 	}
+
+	public static List<CallFailure> findAffectedIMSIsGivenCauseClass(int causeClass) {
+		EntityManager em = emf.createEntityManager();
+		List<CallFailure> callFailures = (List<CallFailure>) em.createNamedQuery("CallFailure.findAffectedIMSIsGivenCauseClass").setParameter("causeClass", causeClass).getResultList();
+		em.close();
+		if(callFailures.size() == 0){
+			return null;
+		}
+		else{
+			return callFailures;
+		}
+	}
+	
 }

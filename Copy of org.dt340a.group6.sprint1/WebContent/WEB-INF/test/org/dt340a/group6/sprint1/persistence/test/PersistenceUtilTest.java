@@ -22,65 +22,15 @@ import org.junit.Test;
 
 public class PersistenceUtilTest {
 
-	@Test//TODO
-	public final void testPersistAllString() {
-
-	}
-
-	@Test//TODO
-	public final void testPersistFailureClasses() {
-
-	}
-
-	@Test//TODO
-	public final void testPersistEventCauses() {
-
-	}
-
-	@Test//TODO
-	public final void testPersistCountryOperators() {
-
-	}
-
-	@Test//TODO
-	public final void testPersistEquipment() {
-
-	}
-
-	@Test//TODO
-	public final void testPersistCallFailures() {
-
-	}
-
-	@Test//TODO
-	public final void testPersistAllListOfObject() {
-
-	}
-
-	@Test//TODO
-	public final void testPersist() {
-
-	}
-
-	@Test//TODO
-	public final void testRemove() {
-
-	}
-
-	@Test//TODO
-	public final void testMerge() {
-
-	}
-
-	@Test//TODO
-	public final void testCreateEM() {
+//	@Test//TODO
+//	public final void testCreateEM() {
 //		assertEquals(PersistenceUtil.createEM().getClass(), EntityManager.class);
-	}
+//	}
 
 	@Test
 	public final void testFindCauseCode_EventIDByIMSI() {
-		assertEquals(PersistenceUtil.findCauseCode_EventIDByIMSI("191911000516761").get(0).getClass(), CallFailure.class);
-		assertNotEquals(PersistenceUtil.findCauseCode_EventIDByIMSI("191911000516761").get(0).getClass(), Cause.class);
+		assertEquals(PersistenceUtil.findCauseCode_EventIDByIMSI("344930000000011").get(0).getClass(), CallFailure.class);
+		assertNotEquals(PersistenceUtil.findCauseCode_EventIDByIMSI("344930000000011").get(0).getClass(), Cause.class);
 		assertEquals(PersistenceUtil.findCauseCode_EventIDByIMSI("aaaa"), null);
 		assertNotEquals(PersistenceUtil.findCauseCode_EventIDByIMSI("aaaa"), CallFailure.class);
 	}
@@ -91,8 +41,8 @@ public class PersistenceUtilTest {
 		try {
 			Date startDateTime = sdf.parse("01/01/2013T00:00");
 			Date endDateTime = sdf.parse("01/01/2014T00:00");
-			assertEquals(PersistenceUtil.findCallByIMSIBetweenDate("191911000516761", startDateTime, endDateTime).get(0).getClass(), CallFailure.class);
-			assertNotEquals(PersistenceUtil.findCallByIMSIBetweenDate("191911000516761", startDateTime, endDateTime).get(0).getClass(), Equipment.class);
+			assertEquals(PersistenceUtil.findCallByIMSIBetweenDate("344930000000011", startDateTime, endDateTime).get(0).getClass(), CallFailure.class);
+			assertNotEquals(PersistenceUtil.findCallByIMSIBetweenDate("344930000000011", startDateTime, endDateTime).get(0).getClass(), Equipment.class);
 			startDateTime = sdf.parse("01/01/4013T00:00");
 			endDateTime = sdf.parse("01/01/4014T00:00");
 			assertEquals(PersistenceUtil.findCallByIMSIBetweenDate("191911000516761", startDateTime, endDateTime), null);
@@ -184,6 +134,21 @@ public class PersistenceUtilTest {
 		assertNotEquals(PersistenceUtil.findUserByUsername("admin").getUsername(), "admin!");
 		assertEquals(PersistenceUtil.findUserByUsername("PandaBear"), null);
 		assertNotEquals(PersistenceUtil.findUserByUsername("PandaBear"), "null");
+	}
+	
+	@Test
+	public final void testFindAffectedIMSIsGivenCauseClass(){
+		assertSame(PersistenceUtil.findAffectedIMSIsGivenCauseClass(0).get(0).getClass(), CallFailure.class);
+		assertNotSame(PersistenceUtil.findAffectedIMSIsGivenCauseClass(0).get(0).getClass(), Cause.class);
+		assertNotSame(PersistenceUtil.findAffectedIMSIsGivenCauseClass(0).getClass(), List.class);
+		assertNotSame(PersistenceUtil.findAffectedIMSIsGivenCauseClass(0).getClass(), CallFailure.class);
+		assertSame(PersistenceUtil.findAffectedIMSIsGivenCauseClass(-9), null);
+		assertNotSame(PersistenceUtil.findAffectedIMSIsGivenCauseClass(-9), "null");
+		assertNotSame(PersistenceUtil.findAffectedIMSIsGivenCauseClass(-9), -9);
+		assertEquals(PersistenceUtil.findAffectedIMSIsGivenCauseClass(0).get(0).getFailureClass().getFailureClass(), 0);
+		assertNotEquals(PersistenceUtil.findAffectedIMSIsGivenCauseClass(0).get(0).getFailureClass().getFailureClass(), 1);
+		assertEquals(PersistenceUtil.findAffectedIMSIsGivenCauseClass(2).get(0).getFailureClass().getFailureClass(), 2);
+		assertNotEquals(PersistenceUtil.findAffectedIMSIsGivenCauseClass(2).get(0).getFailureClass().getFailureClass(), 4);
 	}
 
 }
