@@ -66,7 +66,23 @@ public class Callfailure implements Serializable {
 
 	public Callfailure() {
 	}
-
+	
+	public Callfailure(int baseDataID, int cellId, Date dateTime, int duration, String hier3, String hier32, String hier321, String iMSI, String nEVersion, Equipment equipment, Failureclass failureclass, Countryoperator countryOperator, Cause cause){
+		this.baseDataID = baseDataID;
+		this.cellId = cellId;
+		this.dateTime = dateTime;
+		this.duration = duration;
+		this.hier3 = hier3;
+		this.hier32 = hier32;
+		this.hier321 = hier321;
+		this.iMSI = iMSI;
+		this.nEVersion = nEVersion;
+		this.equipment = equipment;
+		this.failureclass = failureclass;
+		this.countryoperator = countryOperator;
+		this.cause = cause;
+	}
+	
 	public int getBaseDataID() {
 		return this.baseDataID;
 	}
