@@ -1,5 +1,6 @@
 package org.jboss.as.quickstarts.html5_mobile.data;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -8,6 +9,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import javax.persistence.metamodel.EntityType;
+import javax.persistence.metamodel.Metamodel;
 
 import com.conygre.training.entities.Callfailure;
 
@@ -43,4 +46,26 @@ public class CallfailureRepository {
         criteria.select(callfailure).orderBy(cb.asc(callfailure.get("iMSI")));
         return em.createQuery(criteria).getResultList();
     }
+    
+    public List<Callfailure> findAllBetween(Date startDateTime, Date endDateTime) {
+   		List<Callfailure> callFailures = (List<Callfailure>) em
+				.createNamedQuery("CallFailure.findAllBetween")
+				.setParameter("startDateTime", startDateTime)
+				.setParameter("endDateTime", endDateTime).getResultList();
+		if (callFailures.size() == 0)
+			return null;
+		else
+			return callFailures;
+    }
+    
+    public List<Callfailure> findCauseCode_EventIDByIMSI(String IMSI) {
+		List<Callfailure> callfailures = (List<Callfailure>) 
+				em.createNamedQuery("Callfailure.findByIMSI").setParameter("IMSI", IMSI).getResultList();
+		if (callfailures.size() == 0)
+			return null;
+		else
+			return callfailures;
+	}
+    
+    
 }

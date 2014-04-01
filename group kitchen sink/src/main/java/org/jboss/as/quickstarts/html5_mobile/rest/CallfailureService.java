@@ -16,6 +16,9 @@
  */
 package org.jboss.as.quickstarts.html5_mobile.rest;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -27,6 +30,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -74,5 +78,18 @@ public class CallfailureService {
         }
         return callfailure;
     }
+    
+    @GET
+    @Path("/imsiQuery/{imsi}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Callfailure> findCauseCode_EventIDByIMSI(@PathParam("imsi") String IMSI) {
 
+  	    	
+    	List<Callfailure> callfailures = repository.findCauseCode_EventIDByIMSI(IMSI);
+        if (callfailures == null) {
+        	throw new WebApplicationException(Response.Status.NOT_FOUND);
+        }
+        return callfailures;
+    }  
+    
 }

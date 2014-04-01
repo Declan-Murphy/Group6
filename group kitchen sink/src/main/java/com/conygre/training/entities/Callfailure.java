@@ -9,8 +9,13 @@ import java.util.Date;
  * The persistent class for the callfailure database table.
  * 
  */
+
+@NamedQueries({
+	 @NamedQuery(name = "Callfailure.findByIMSI", query = "SELECT c FROM Callfailure c where c.iMSI=:IMSI"),
+	 @NamedQuery(name = "Callfailure.findAll", query="SELECT c FROM Callfailure c"),
+	 @NamedQuery(name = "Callfailure.findAllBetween", query = "SELECT c FROM Callfailure c where c.dateTime between :startDateTime and :endDateTime order by c.iMSI"),
+})
 @Entity
-@NamedQuery(name="Callfailure.findAll", query="SELECT c FROM Callfailure c")
 public class Callfailure implements Serializable {
 	private static final long serialVersionUID = 1L;
 
