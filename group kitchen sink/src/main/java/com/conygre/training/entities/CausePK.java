@@ -18,6 +18,12 @@ public class CausePK implements Serializable {
 
 	public CausePK() {
 	}
+	
+	public CausePK(double causeCode, double eventId){
+		this.causeCode = causeCode;
+		this.eventId = eventId;
+	}
+	
 	public double getCauseCode() {
 		return this.causeCode;
 	}
