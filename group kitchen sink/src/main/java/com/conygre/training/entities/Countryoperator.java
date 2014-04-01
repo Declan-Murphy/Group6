@@ -32,6 +32,12 @@ public class Countryoperator implements Serializable {
 
 	public Countryoperator() {
 	}
+	
+	public Countryoperator(CountryoperatorPK id, String country, String operator){
+		this.id = id;
+		this.country = country;
+		this.operator = operator;
+	}
 
 	public CountryoperatorPK getId() {
 		return this.id;
