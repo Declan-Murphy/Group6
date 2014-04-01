@@ -18,6 +18,12 @@ public class CountryoperatorPK implements Serializable {
 
 	public CountryoperatorPK() {
 	}
+	
+	public CountryoperatorPK(double mCC, double mNC){
+		this.mCC = mCC;
+		this.mNC = mNC;
+	}
+	
 	public double getMCC() {
 		return this.mCC;
 	}

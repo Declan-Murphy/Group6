@@ -45,7 +45,20 @@ public class Equipment implements Serializable {
 
 	public Equipment() {
 	}
-
+	
+	public Equipment(int tAC, String accessCapability, String equipmentType, String inputMode, String manufacturer, String marketingName, String model, String operatingSystem, String vendorName, List<Callfailure> callfailures){
+		this.tAC = tAC;
+		this.accessCapability = accessCapability;
+		this.equipmentType = equipmentType;
+		this.inputMode = inputMode;
+		this.manufacturer = manufacturer;
+		this.marketingName = marketingName; 
+		this.model = model;
+ 		this.operatingSystem = operatingSystem; 
+ 		this.vendorName = vendorName;
+ 		this.callfailures = callfailures;
+	}
+	
 	public int getTAC() {
 		return this.tAC;
 	}
