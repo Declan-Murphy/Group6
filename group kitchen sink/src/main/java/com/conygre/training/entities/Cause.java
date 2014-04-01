@@ -30,7 +30,13 @@ public class Cause implements Serializable {
 
 	public Cause() {
 	}
-
+	
+	public Cause(CausePK id, String description, List<Callfailure> callfailures){
+		this.id = id;
+		this.description = description;
+		this.callfailures = callfailures;
+	}
+	
 	public CausePK getId() {
 		return this.id;
 	}
